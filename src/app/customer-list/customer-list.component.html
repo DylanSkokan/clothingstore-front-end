@@ -1,0 +1,32 @@
+<div class="navBar">
+  <a class="active" href="index.html">Home</a>
+  <a href="/all">Products</a>
+  <a href="/all">Something else maybe</a>
+  <a href="/all">aspodk</a>
+  <div class="topNav-right">
+    <a href="/save">Login</a>
+    <a href="#">About Us</a>
+  </div>
+</div>
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td>{{ customer.customerId }}</td>
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.lastName }}</td>
+            <td><a href="mailto:{{ customer.email }}">{{ customer.email }}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
