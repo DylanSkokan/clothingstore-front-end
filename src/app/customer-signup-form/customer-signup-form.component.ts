@@ -4,11 +4,11 @@ import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customer.service';
 
 @Component({
-  selector: 'app-customer-form',
-  templateUrl: './customer-form.component.html',
-  styleUrls: ['./customer-form.component.css']
+  selector: 'app-customer-signup-form',
+  templateUrl: './customer-signup-form.component.html',
+  styleUrls: ['./customer-signup-form.component.css']
 })
-export class CustomerFormComponent {
+export class CustomerSignupFormComponent {
 
   customer: Customer;
 
