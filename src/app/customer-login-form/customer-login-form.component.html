@@ -1,0 +1,41 @@
+<div class="navBar">
+    <a class="active" href="index.html">Home</a>
+    <a href="/all">Products (not working)</a>
+    <a href="/customer/all">/customer/all</a>
+    <div class="topNav-right">
+      <a href="customer/login">Login</a>
+      <a href="customer/createCustomer">Sign Up</a>
+      <a href="#">About Us</a>
+    </div>
+  </div>
+
+<header>
+<h1 class="center-header">Welcome Back, Sign in Below...</h1>
+</header>
+
+<div class="login-form">
+    <div style="display: inline-block; text-align: left;">
+      <form (ngSubmit)="onSubmit()" #customerLoginForm="ngForm">
+        <div class="form-group">
+          <label for="name">Username</label>
+          <input type="text" [(ngModel)]="customer.username" 
+            class="form-control" 
+            id="username" 
+            name="username" 
+            placeholder="Enter username..."
+            required #name="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="name">Password</label>
+          <input type="text" [(ngModel)]="customer.password" 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            placeholder="Enter password"
+            required #name="ngModel">
+        </div>
+        <button type="submit" [disabled]="!customerLoginForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>

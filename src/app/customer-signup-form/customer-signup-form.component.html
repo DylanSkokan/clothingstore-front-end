@@ -3,14 +3,19 @@
   <a href="/all">Products (not working)</a>
   <a href="/customer/all">/customer/all</a>
   <div class="topNav-right">
-    <a href="customer/save">Login</a>
-    <a href="customer/save">Sign Up</a>
+    <a href="customer/login">Login</a>
+    <a href="customer/createCustomer">Sign Up</a>
     <a href="#">About Us</a>
   </div>
 </div>
+
+<header>
+  <h1 class="center-header">Sign Up Below!</h1>
+</header>
+
 <div class="signup-form">
     <div style="display: inline-block; text-align: left;">
-      <form (ngSubmit)="onSubmit()" #customerSignupForm="ngForm">
+      <form (ngSubmit)="passwordMatchValidator(customerSignupForm); onSubmit(customerSignupForm)" #customerSignupForm="ngForm" novalidate>
         <div class="form-group">
           <label for="name">Username</label>
           <input type="text" [(ngModel)]="customer.username" 
@@ -18,25 +23,25 @@
             id="username" 
             name="username" 
             placeholder="Enter username..."
-            required #name="ngModel">
+            required>
         </div>
         <div class="form-group">
-          <label for="name">Password</label>
-          <input type="text" [(ngModel)]="customer.password" 
+          <label for="password">Password</label>
+          <input type="password" [(ngModel)]="customer.password" 
             class="form-control" 
             id="password" 
             name="password" 
             placeholder="Enter password"
-            required #name="ngModel">
+            required>
         </div>
         <div class="form-group">
-          <label for="name">Repeat Password</label>
-          <input type="text" [(ngModel)]="customer.password" 
+          <label for="rePassword">Repeat Password</label>
+          <input type="password" [(ngModel)]="customer.rePassword" 
             class="form-control" 
-            id="password-confirm" 
-            name="password-confirm" 
+            id="rePassword" 
+            name="rePassword" 
             placeholder="Confirm password"
-            required #name="ngModel">
+            required #rePassword="ngModel" [ngModelOptions]="{updateOn: 'blur'}" appPasswordMatchValidator>
         </div>
         <div class="form-group">
           <label for="name">First Name</label>
@@ -45,7 +50,7 @@
             id="first-name" 
             name="first-name" 
             placeholder="Enter your first name"
-            required #name="ngModel">
+            required>
         </div>
         <div class="form-group">
             <label for="name">Last Name</label>
@@ -54,18 +59,18 @@
               id="last-name" 
               name="last-name" 
               placeholder="Enter your last name"
-              required #name="ngModel">
+              required>
           </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="name">Email</label>
           <input type="text" [(ngModel)]="customer.email" 
             class="form-control" 
             id="email" 
             name="email" 
             placeholder="Enter your email address"
-            required #email="ngModel">
+            required>
         </div>
-        <button type="submit" [disabled]="!customerSignupForm.form.valid" 
+        <button type="submit" [disabled]="customerSignupForm.invalid"
           class="btn btn-info">Submit</button>
       </form>
     </div>

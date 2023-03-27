@@ -8,13 +8,17 @@ import { CustomerSignupFormComponent } from './customer-signup-form/customer-sig
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CustomerLoginFormComponent } from './customer-login-form/customer-login-form.component';
+import { AccountCreationSuccessComponent } from './account-creation-success/account-creation-success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerListComponent,
     CustomerSignupFormComponent,
-    HomePageComponent
+    HomePageComponent,
+    CustomerLoginFormComponent,
+    AccountCreationSuccessComponent
   ],
   imports: [
     BrowserModule,
