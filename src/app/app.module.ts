@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CustomerLoginFormComponent } from './customer-login-form/customer-login-form.component';
 import { AccountCreationSuccessComponent } from './account-creation-success/account-creation-success.component';
+import { HeaderComponent } from './header/header.component';
+import { ProductShirtsComponent } from './product-shirts/product-shirts.component';
+import { ProductPantsComponent } from './product-pants/product-pants.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { AccountCreationSuccessComponent } from './account-creation-success/acco
     CustomerSignupFormComponent,
     HomePageComponent,
     CustomerLoginFormComponent,
-    AccountCreationSuccessComponent
+    AccountCreationSuccessComponent,
+    HeaderComponent,
+    ProductShirtsComponent,
+    ProductPantsComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,

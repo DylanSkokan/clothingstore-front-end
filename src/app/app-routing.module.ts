@@ -5,6 +5,10 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CustomerLoginFormComponent } from './customer-login-form/customer-login-form.component';
 import { AccountCreationSuccessComponent } from './account-creation-success/account-creation-success.component';
+import { ProductShirtsComponent } from './product-shirts/product-shirts.component';
+import { ProductPantsComponent } from './product-pants/product-pants.component';
+import { ViewEncapsulation } from '@angular/compiler';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 const routes: Routes = [  
   { path: '', component: HomePageComponent },
@@ -12,6 +16,9 @@ const routes: Routes = [
   { path: 'customer/login', component: CustomerLoginFormComponent },
   { path: 'customer/createCustomer', component: CustomerSignupFormComponent },
   { path: 'customer/accountCreationSuccess', component: AccountCreationSuccessComponent },
+  { path: 'product-shirts', component: ProductShirtsComponent },
+  { path: 'product-pants', component: ProductPantsComponent },
+  { path: 'view-product', component: ViewProductComponent}
 ];
 
 @NgModule({
