@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customer.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-customer-login-form',
@@ -21,8 +22,10 @@ export class CustomerLoginFormComponent {
   }
 
   onSubmit() {
-    this.customerService.login(this.customer).subscribe(response => {
-      console.log(response);
+    this.customerService.login(this.customer.username, this.customer.password).subscribe(response => {
+      console.log('log in response:' + response);
     });
+    
+    this.router.navigate(['']);
   }
 }

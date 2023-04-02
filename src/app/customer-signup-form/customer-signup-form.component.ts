@@ -15,8 +15,6 @@ export class CustomerSignupFormComponent {
   customer: Customer;
   response : string | null;
 
-  registerationForm: FormGroup = new FormGroup({});
-
   constructor(
     private route: ActivatedRoute, 
       private router: Router, 
@@ -36,14 +34,13 @@ export class CustomerSignupFormComponent {
       form.controls['rePassword'].setErrors(null);
     }
   }
-
+  //username, password, firstname, lastname, email
   onSubmit(form: NgForm) {
-    //if(!form.controls['rePassword'].hasError){
-      this.customerService.createCustomer(this.customer).subscribe(response => {
-        console.log(response);
-      });
-      
-      this.router.navigate(['customer/accountCreationSuccess']);
-    //}
+    this.customerService.createCustomer(this.customer.username, this.customer.password,
+      this.customer.firstName, this.customer.lastName, this.customer.email).subscribe(response => {
+      console.log('account creation response:' + response);
+    });
+    
+    this.router.navigate(['customer/accountCreationSuccess']);
   }
 }
