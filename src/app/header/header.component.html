@@ -11,7 +11,13 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item" routerLink="/">
-          Home
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span>
+            <span>Home</span>
+          </span>
+          <!-- Home --> 
         </a>
   
         <div class="navbar-item has-dropdown is-hoverable">
@@ -39,11 +45,19 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
+            <a class ="button" routerLink="/shopping-cart">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fa fa-shopping-cart"></i>
+                </span>
+                <span>My Cart</span>
+              </span>
+            </a>
             <a class="button is-primary" routerLink="customer/createCustomer">
-              <strong>Sign up</strong>
+              <strong>Sign Up</strong>
             </a>
             <a class="button is-light" routerLink="customer/login">
-              Log in
+              Log In
             </a>
           </div>
         </div>

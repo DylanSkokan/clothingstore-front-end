@@ -1,12 +1,21 @@
 .hero {
-  background-image: url('/assets/img/background.png') !important; 
+  background-image: url('/assets/img/home-background.jpg') !important; 
   background-size: cover;
   background-position: center center;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
-
-.title {
-  font-size: large;
+/*
+img {
+  height: 50px;
+  width: 50px;
+}
+*/
+/*.title {
+  font-size: medium;
   outline-color: black;
   
-}
+} */
+
+/*.h1 {
+  font-size: xx-large;
+} */

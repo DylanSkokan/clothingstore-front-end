@@ -1,4 +1,4 @@
-
+<!---
 <header>
   <h1 class="center-header">Sign Up Below!</h1>
 </header>
@@ -65,3 +65,131 @@
       </form>
     </div>
   </div>
+-->
+
+<!-- Updated form layout-->
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">
+        Sign Up!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+    <form (ngSubmit)="passwordMatchValidator(customerSignupForm); onSubmit(customerSignupForm)" #customerSignupForm="ngForm" novalidate>
+
+      <!-- Username Field-->
+      <div class="field">
+        <label class="label">Username</label>
+        <input type="text" 
+               [(ngModel)]="customer.username"
+               id="username" 
+               name="username" 
+               class="input"
+               placeholder="Enter a username"
+               required>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label class="label">Password</label>
+        <input type="password" [(ngModel)]="customer.password" 
+          id="password"
+          name="password"
+          class="input"
+          placeholder="Enter your password"
+          required>
+      </div>
+
+      <!-- Repeat Password -->
+      <div class="field">
+        <label class="label">Re-enter Password</label>
+        <input type="password" [(ngModel)]="customer.rePassword" 
+          id="rePassword"
+          name="rePassword"
+          class="input"
+          placeholder="Confirm password"
+          required #rePassword="ngModel" [ngModelOptions]="{updateOn: 'blur'}" appPasswordMatchValidator>
+      </div>
+
+      <!-- First Name -->
+      <div class="field">
+        <label class="label">First Name</label>
+        <input type="text" [(ngModel)]="customer.firstName" 
+          id="first-name"
+          name="first-name"
+          class="input"
+          placeholder="Enter your first name"
+          required>
+      </div>
+
+      <!-- Last Name -->
+      <div class="field">
+        <label class="label">Last Name</label>
+        <input type="text" [(ngModel)]="customer.lastName" 
+          id="last-name"
+          name="last-name"
+          class="input"
+          placeholder="Enter your last name"
+          required>
+      </div>
+
+
+      <!-- Email -->
+
+      <div class="field">
+        <label class="label">Email</label>
+        <input type="email" [(ngModel)]="customer.email" 
+          class="input"
+          id="email"
+          name="email"
+          placeholder="Enter your email address"
+          #emailInput="ngModel"
+          required
+          email>
+      </div> 
+      <div class="help is-error" *ngIf="emailInput.invalid && emailInput.touched">
+        Your email needs to be a valid email.
+      </div>
+      <!----
+      <div class="form-group">
+        <label for="name">Email</label>
+        <input type="email" [(ngModel)]="customer.email" 
+          class="input" 
+          id="email" 
+          name="email" 
+          placeholder="Enter your email address"
+          #emailInput="ngModel"
+          required 
+          email>
+          <div class="help is-error" *ngIf="emailInput.invalid && emailInput.touched">
+            Your email needs to be a valid email.
+          </div>
+      </div> -->
+
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="customerSignupForm.invalid"
+      class="button is-large is-warning">Submit</button>
+
+    </form>
+      </div>
+      <div class="column">
+        <!-- <div class="pic-box">
+        <p>
+          <img style="height: 30%; width: 61%; object-fit: contain" src="/assets/img/Pants2.png">
+        </p>
+        </div> -->
+        <p>
+          <img style="height: 35%; width: 63%; object-fit: contain" src="/assets/img/Pants2.png">
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
