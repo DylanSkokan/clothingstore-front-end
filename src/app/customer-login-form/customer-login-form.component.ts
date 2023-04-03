@@ -24,7 +24,15 @@ export class CustomerLoginFormComponent {
   onSubmit() {
     this.customerService.login(this.customer.username, this.customer.password).subscribe(response => {
       console.log('log in response:' + response);
+        
+      if (response) {
+        this.customerService.isLoggedIn = true;
+      } else {
+        this.customerService.isLoggedIn = false;
+      }
     });
+
+
     
     this.router.navigate(['']);
   }

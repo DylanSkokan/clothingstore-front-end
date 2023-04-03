@@ -33,7 +33,6 @@ export class CustomerService {
     const loginSuccess = this.http.post<boolean>('http://localhost:8080/customer/login', {username, password},
     {headers: headers})
     if(loginSuccess){
-      this.isLoggedIn = true;
       this.sessionService.setItem('loggedIn', username)
     }
     return loginSuccess
