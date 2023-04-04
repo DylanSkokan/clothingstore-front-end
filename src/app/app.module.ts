@@ -34,7 +34,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
     ProductPantsComponent,
     ViewProductComponent,
     ProductShoesComponent,
-    ProductHatsComponent
+    ProductHatsComponent,
     FooterComponent,
     ShoppingCartComponent,
     ProductItemComponent
