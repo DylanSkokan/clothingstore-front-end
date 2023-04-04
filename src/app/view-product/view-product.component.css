@@ -1,3 +1,43 @@
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.title {
+  font-size: xx-large;
+}
+
+.style {
+  font-size: large;
+}
+
+/* Can use this but it is not supported by IE10 and previous versions so use caution
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+Can also use this if we want a responsive layout where is the screen is less than 600px, the two columns will stack on top of eachother instead of next to eachother
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+*/
+
 html, body {
     height: 100%;
     width: 100%;
@@ -19,4 +59,10 @@ html, body {
   .right-column {
     width: 35%;
     margin-top: 60px;
+  }
+
+  .hero {
+    background-image: url('/assets/img/background1.png') !important; 
+    background-size: cover;
+    background-position: center center;
   }

@@ -1,0 +1,10 @@
+.center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero {
+    background-image: url('/assets/img/background1.png') !important; 
+    background-size: cover;
+    background-position: center center;
+  }

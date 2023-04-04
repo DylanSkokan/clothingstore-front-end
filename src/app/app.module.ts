@@ -14,6 +14,8 @@ import { HeaderComponent } from './header/header.component';
 import { ProductShirtsComponent } from './product-shirts/product-shirts.component';
 import { ProductPantsComponent } from './product-pants/product-pants.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { ProductShoesComponent } from './product-shoes/product-shoes.component';
+import { ProductHatsComponent } from './product-hats/product-hats.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -31,9 +33,12 @@ import { ProductItemComponent } from './product-item/product-item.component';
     ProductShirtsComponent,
     ProductPantsComponent,
     ViewProductComponent,
+    ProductShoesComponent,
+    ProductHatsComponent
     FooterComponent,
     ShoppingCartComponent,
     ProductItemComponent
+
   ],
   imports: [
     BrowserModule,
