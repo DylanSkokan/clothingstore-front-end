@@ -16,6 +16,10 @@ import { ProductPantsComponent } from './product-pants/product-pants.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { ProductShoesComponent } from './product-shoes/product-shoes.component';
 import { ProductHatsComponent } from './product-hats/product-hats.component';
+import { FooterComponent } from './footer/footer.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductItemComponent } from './product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +35,17 @@ import { ProductHatsComponent } from './product-hats/product-hats.component';
     ViewProductComponent,
     ProductShoesComponent,
     ProductHatsComponent
+    FooterComponent,
+    ShoppingCartComponent,
+    ProductItemComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
