@@ -44,6 +44,8 @@
   
       <div class="navbar-end">
         <div class="navbar-item">
+          <ng-container *ngIf="customerService.isLoggedIn; then loggedInContent else loggedOutContent"></ng-container>
+          <ng-template #loggedOutContent>
           <div class="buttons">
             <a class ="button" routerLink="/shopping-cart">
               <span class="icon-text">
@@ -60,6 +62,17 @@
               Log In
             </a>
           </div>
+        </ng-template>
+        <ng-template #loggedInContent>
+          <div class="buttons">
+            <a class="button is-primary" routerLink="customer/createCustomer">
+              <strong>Account</strong>
+            </a>
+            <a class="button is-light" routerLink="" (click)="customerService.logout()">
+              Logout
+            </a>
+          </div>
+        </ng-template>
         </div>
       </div>
     </div>
