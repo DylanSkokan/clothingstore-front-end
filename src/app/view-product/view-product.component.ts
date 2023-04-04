@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class ViewProductComponent {
 
+  description = "This is a nice description of a product";
+  brand = "Brand";
+  price = 35.99;
+  size: String;
+
+  pickingSize(e : any){
+    this.size = e.target.value
+  }
+
+  submitForm(){
+    alert("You chose size " + this.size);
+  }
+
 }

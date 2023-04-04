@@ -9,6 +9,8 @@ import { ProductShirtsComponent } from './product-shirts/product-shirts.componen
 import { ProductPantsComponent } from './product-pants/product-pants.component';
 import { ViewEncapsulation } from '@angular/compiler';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { ProductShoesComponent } from './product-shoes/product-shoes.component';
+import { ProductHatsComponent } from './product-hats/product-hats.component';
 
 const routes: Routes = [  
   { path: '', component: HomePageComponent },
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'customer/accountCreationSuccess', component: AccountCreationSuccessComponent },
   { path: 'product-shirts', component: ProductShirtsComponent },
   { path: 'product-pants', component: ProductPantsComponent },
-  { path: 'view-product', component: ViewProductComponent}
+  { path: 'product-shoes', component: ProductShoesComponent },
+  { path: 'product-hats', component: ProductHatsComponent },
+  { path: 'view-product', component: ViewProductComponent }
 ];
 
 @NgModule({
