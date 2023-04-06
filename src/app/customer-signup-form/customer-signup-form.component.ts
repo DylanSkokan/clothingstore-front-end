@@ -14,6 +14,7 @@ export class CustomerSignupFormComponent {
 
   customer: Customer;
   response : string | null;
+  usernameExists: boolean = false;
 
   constructor(
     private route: ActivatedRoute, 
@@ -23,14 +24,9 @@ export class CustomerSignupFormComponent {
   }
 
   passwordMatchValidator(form: NgForm) {
-    console.log(form.controls['password'].value)
-    console.log(form.controls['rePassword'].value)
-
     if (form.controls['password'].value !== form.controls['rePassword'].value) {
-      console.log('passwords do not match');
       form.controls['rePassword'].setErrors({ passwordMismatch: true });
     } else {
-      console.log('passwords match');
       form.controls['rePassword'].setErrors(null);
     }
   }
@@ -38,9 +34,12 @@ export class CustomerSignupFormComponent {
   onSubmit(form: NgForm) {
     this.customerService.createCustomer(this.customer.username, this.customer.password,
       this.customer.firstName, this.customer.lastName, this.customer.email).subscribe(response => {
-      console.log('account creation response:' + response);
+      if (response == true){
+        this.usernameExists = false;
+        this.router.navigate(['customer/accountCreationSuccess']);
+      } else {
+        this.usernameExists = true;
+      }
     });
-    
-    this.router.navigate(['customer/accountCreationSuccess']);
   }
 }

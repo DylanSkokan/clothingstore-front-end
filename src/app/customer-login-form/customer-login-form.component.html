@@ -5,6 +5,10 @@
 <div class="login-form">
     <div style="display: inline-block; text-align: left;">
       <form (ngSubmit)="onSubmit()" #customerLoginForm="ngForm">
+        <!-- If username is already in DB -->
+        <div class="error-message" *ngIf="!validCredentials">
+          Username or password is incorrect.
+        </div>
         <div class="form-group">
           <label for="name">Username</label>
           <input type="text" [(ngModel)]="customer.username" 

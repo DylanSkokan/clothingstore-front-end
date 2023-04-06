@@ -12,6 +12,7 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class CustomerLoginFormComponent {
   customer: Customer;
+  validCredentials: boolean = true;
 
   constructor(
     private route: ActivatedRoute, 
@@ -23,17 +24,14 @@ export class CustomerLoginFormComponent {
 
   onSubmit() {
     this.customerService.login(this.customer.username, this.customer.password).subscribe(response => {
-      console.log('log in response:' + response);
-        
       if (response) {
         this.customerService.isLoggedIn = true;
+        this.validCredentials = true;
+        this.router.navigate(['']);
       } else {
         this.customerService.isLoggedIn = false;
+        this.validCredentials = false;
       }
     });
-
-
-    
-    this.router.navigate(['']);
   }
 }
