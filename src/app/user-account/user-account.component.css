@@ -1,0 +1,21 @@
+.login-form {
+    background-color: #9bb5f6;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .center-header {
+    font-family: Ink Free;
+    text-align: center;
+    font-size: 3em;
+  }
+
+  
