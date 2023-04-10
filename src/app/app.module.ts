@@ -20,6 +20,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { ProductReviewComponent } from './review/review.component';
+import { UserAccountComponent } from './user-account/user-account.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ProductItemComponent } from './product-item/product-item.component';
     ProductHatsComponent,
     FooterComponent,
     ShoppingCartComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    ProductReviewComponent,
+    UserAccountComponent
 
   ],
   imports: [

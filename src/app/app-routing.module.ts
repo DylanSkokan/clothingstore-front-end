@@ -13,6 +13,7 @@ import { ProductShoesComponent } from './product-shoes/product-shoes.component';
 import { ProductHatsComponent } from './product-hats/product-hats.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { UserAccountComponent } from './user-account/user-account.component';
 
 
 const routes: Routes = [  
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'product-hats', component: ProductHatsComponent },
   { path: 'view-product', component: ViewProductComponent},
   { path: 'shopping-cart', component: ShoppingCartComponent},
-  { path: 'product-item', component: ProductItemComponent}
+  { path: 'product-item', component: ProductItemComponent},
+  { path: 'userAccount', component: UserAccountComponent}
 
 ];
 

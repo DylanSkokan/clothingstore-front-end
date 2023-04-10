@@ -61,8 +61,6 @@ html, body {
     margin-top: 60px;
   }
 
-  .hero {
-    background-image: url('/assets/img/background1.png') !important; 
-    background-size: cover;
-    background-position: center center;
+  img {
+    border: 5px solid aqua;
   }

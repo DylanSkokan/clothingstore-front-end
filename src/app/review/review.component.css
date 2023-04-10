@@ -1,0 +1,11 @@
+.border {
+    padding: 4px;
+    border: 5px solid rgb(154, 68, 46);
+    margin-bottom: 4px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+article {
+    background-color: rgb(199, 217, 211);
+}
