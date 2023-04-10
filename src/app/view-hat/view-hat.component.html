@@ -1,0 +1,8 @@
+<app-view-product>
+</app-view-product>
+    <div class="pants-detail" *ngIf="hat">
+      <h2>{{ hat.brand }}</h2>
+      <p>Color: {{ hat.color }}</p>
+      <p>Size: {{ hat.size }}</p>
+      <button (click)="addToCart(hat)">Add to Cart</button>
+  </div>

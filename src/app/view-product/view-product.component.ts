@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from '../model/product';
 
 @Component({
   selector: 'app-view-product',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./view-product.component.css']
 })
 export class ViewProductComponent {
+
+  product: Product
 
   description = "This is a nice description of a product";
   brand = "Brand";
