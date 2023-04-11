@@ -84,7 +84,11 @@
     <div class="columns">
       <div class="column">
     <form (ngSubmit)="passwordMatchValidator(customerSignupForm); onSubmit(customerSignupForm)" #customerSignupForm="ngForm" novalidate>
-
+      
+      <!-- If username is already in DB -->
+      <div class="error-message" *ngIf="usernameExists">
+        Username already exists.
+      </div>
       <!-- Username Field-->
       <div class="field">
         <label class="label">Username</label>
@@ -96,7 +100,6 @@
                placeholder="Enter a username"
                required>
       </div>
-
       <!-- Password -->
       <div class="field">
         <label class="label">Password</label>
@@ -187,7 +190,7 @@
         </p>
         </div> -->
         <p>
-          <img style="height: 35%; width: 63%; object-fit: contain" src="/assets/img/Pants2.png">
+          <img style="height: 35%; width: 63%; object-fit: contain" src="/assets/img/pants2.png"> <!-- Change this image to something nice -->
         </p>
       </div>
     </div>

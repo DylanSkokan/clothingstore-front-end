@@ -1,6 +1,11 @@
 <section class="hero is-dark is-bold is-fullheight">
   <div class="hero-body">
     <div class = "container has-text-centered">
+      
+<!-- placeholder shirts -->
+<div *ngFor="let hat of hats">
+  <button [routerLink]="['view-product', hat.productId]">">{{ hat.brand }}</button>
+</div>
 
 <div class="tile is-ancestor">
     <div class="tile is-parent">

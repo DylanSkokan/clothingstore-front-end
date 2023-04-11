@@ -2,6 +2,11 @@
   <div class="hero-body">
     <div class = "container has-text-centered">
 
+<!-- placeholder buttons -->
+<div *ngFor="let shoes of shoes">
+  <button [routerLink]="['view-product', shoes.productId]">">{{ shoes.brand }}</button>
+</div>
+
 <div class="tile is-ancestor">
     <div class="tile is-parent">
       <article class="tile is-child box">

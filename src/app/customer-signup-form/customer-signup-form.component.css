@@ -12,6 +12,14 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 */
+
+.error-message{
+  color: red;
+}
+.error-message.show {
+  display: block !important;
+}
+
 form {
   display: flex;
   flex-direction: column;

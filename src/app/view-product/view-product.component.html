@@ -1,30 +1,48 @@
-<div class="row">
-  <!-- This will be our image on the left column -->
-  <div class="column"> 
-    <img data-image="black" src="assets/img/shirt1.png" alt="">
-  </div>
+<div class="background">
 
-  <!-- This will be our form to get sizing and display info on product on the right column -->
-  <div class="column">
-    <form (ngSubmit)="submitForm()">
-      <p class="title">Product Title goes here</p>
-      <p>{{ description }}</p>
-      <p>{{ brand }}</p>
-      <p>${{ price }}</p>
-      <div class="style">
-        <input type="radio" id="small" name="size" value="small" (change)="pickingSize($event)" checked>
-        <label for="small"> Small</label><br>
-
-        <input [(ngModel)]="size" type="radio" id="medium" name="size" value="medium" (change)="pickingSize($event)">
-        <label for="medium"> Medium</label><br>
-
-        <input [(ngModel)]="size" type="radio" id="large" name="size" value="large" (change)="pickingSize($event)">
-        <label for="large"> Large</label><br>
-
-        <input [(ngModel)]="size" type="radio" id="x-large" name="size" value="x-large" (change)="pickingSize($event)">
-        <label for="x-large"> Extra Large</label><br>
+  <div class="row">
+    <!-- This will be our image on the left column -->
+    <div class="column"> 
+      <div class="image-frame">
+        <img data-image="black" align="right" src="assets/img/shirt1.png" alt="">
       </div>
-      <button type="submit" class="button is-medium is-link" value="Submit">Add To Cart</button>
-    </form>
+    </div>
+
+    <!-- This will be our form to get sizing and display info on product on the right column -->
+    <div class="column">
+      <form (ngSubmit)="submitForm()">
+        <p class="title">Product Title goes here</p>
+        <b><p>{{ description }}</p></b>
+        <b><p>{{ brand }}</p></b>
+
+        <hr class="line">
+        
+        <b><p>Price: ${{ price }}</p></b>
+        <div class="style">
+          <b>
+          <input type="radio" id="small" name="size" value="small" (change)="pickingSize($event)" checked>
+          <label for="small"> Small</label><br>
+
+          <input [(ngModel)]="size" type="radio" id="medium" name="size" value="medium" (change)="pickingSize($event)">
+          <label for="medium"> Medium</label><br>
+
+          <input [(ngModel)]="size" type="radio" id="large" name="size" value="large" (change)="pickingSize($event)">
+          <label for="large"> Large</label><br>
+
+          <input [(ngModel)]="size" type="radio" id="x-large" name="size" value="x-large" (change)="pickingSize($event)">
+          <label for="x-large"> Extra Large</label><br><br>
+          </b>
+        </div>
+        <button type="submit" class="button is-medium is-link" value="Submit">Add To Cart</button>
+      </form>
+    </div>
   </div>
+
+  <app-product-review></app-product-review>
+  <app-product-review></app-product-review>
+  <app-product-review></app-product-review>
+  <app-product-review></app-product-review>
+  <app-product-review></app-product-review>
+  <app-product-review></app-product-review>
+
 </div>
