@@ -1,14 +1,15 @@
-<!-- background image (shirts hanging on rack) -->
-<section class="hero is-dark is-bold is-medium">
+
+ <section class="hero is-dark is-bold is-medium">
   <div class="hero-body">
-    <div class = "container has-text-centered">
+    <div style="border: 20px; border-color: rgb(23, 23, 24); background-color: black; opacity: 100%;width: fit-content;" class = "container has-text-centered box">
       <p class="title">
+        ICS 499 Capstone Project
       </p>
    </div>
   </div>
 </section>
 
-<!-- project description -->
+<!-- 
 <section class="section">
   <div class="container is-dark has-text-centered box">
     <p class="title is-1">
@@ -20,133 +21,119 @@
   </div>
 </section>
 
-<!-- browse popular products -->
+
 <section class="section">
   <div class="container">
-    <p style = "padding-bottom: 15px;"class="subtitle">
-      Browse popular products:
-    </p>
+    <h1 style = "padding-bottom: 15px;"class="subtitle">
+      Popular Products
+    </h1>
   </div>
 
 
   <div class="tile is-ancestor">
 
-    <!-- product 1 -->
+ 
     <div class="tile is-parent">
       <article class="tile is-child box">
-        <img style="background-size: cover;" src="/assets/img/Pants6.png">
+        <img src="/assets/img/Pants6.png">
       </article>
     </div>
 
-    <!-- product 2 -->
+    
     <div class="tile is-parent">
       <article class="tile is-child box">
-        <img src="/assets/img/grayShirt.png">
+        <img src="/assets/img/hat1.png">
       </article>
     </div>
-    <!-- product 3 -->
+    
     <div class="tile is-parent">
       <article class="tile is-child box">
-        <img src="/assets/img/Pants5.png">
-      </article>
-    </div>
-
-    <!-- product 4 -->
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <figure class="image is-128x128">
-        <img src="/assets/img/Pants4.png">
-      </figure>
+        <img src="/assets/img/shirt1.png">
       </article>
     </div>
 
-    <!-- product 5 -->
+   
     <div class="tile is-parent">
       <article class="tile is-child box">
-        <figure class="image is-128x128">
-          <img src="/assets/img/shirtWithLightBulb.png">
-        </figure>
+        <img src="/assets/img/Pants2.png">
       </article>
     </div>
 
-  </div>
-</section>
-
-<!-- hot and new -->
-<section class="section">
-  <div class="container">
-    <p style = "padding-bottom: 15px;"class="subtitle">
-      Check out what's hot and new!
-    </p>
-  </div>
-
-  
-  <div class="tile is-ancestor">
-
-    <!-- product 1 -->
+    
     <div class="tile is-parent">
       <article class="tile is-child box">
-        <img style="background-size: cover;" src="/assets/img/Pants6.png">
-      </article>
-    </div>
-
-    <!-- product 2 -->
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/grayShirt.png">
-      </article>
-    </div>
-    <!-- product 3 -->
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/Pants5.png">
-      </article>
-    </div>
-
-    <!-- product 4 -->
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/Pants4.png">
-      </article>
-    </div>
-
-    <!-- product 5 -->
-    <div class="tile is-parent is-hoverable">
-      <article class="tile is-child box">
-       <!-- <img src="/assets/img/shirtWithLightBulb.png"> -->
-       <app-product-item></app-product-item>
+          <img src="/assets/img/shoes5.png">
       </article>
     </div>
   </div>
 </section>
 
 
-
-<!---
-<section>
+<section class="section">
   <div class="container">
-    <div class="columns">
-      <div class="column"></div>
-      <div class="column">
-        <div class="title">
-          Front End:
-        </div>
-        <p>
-          A responsive web page buit with Angular, a TypeScript framework implementing Bulma, a 
-          popular CSS library. 
-        </p>
+    <h1 style = "padding-bottom: 15px;"class="subtitle">
+      Hot and New!
+    </h1>
+  </div>
+
+
+  <div class="tile is-ancestor">
+
+    
+    <div class="tile is-parent">
+      <div class="tile is-child box">
+        <img src="/assets/img/shoes2.png">
       </div>
-      <div class="column"></div>
-      <div class="column">
-        <div class="title">
-          Back End:
+    </div>
+
+    
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <img src="/assets/img/hat3.png">
+      </article>
+    </div>
+    
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <img src="/assets/img/Pants5.png">
+      </article>
+    </div>
+
+    
+    <div class="tile is-parent">
+      <article class="tile is-child box">
+        <img src="/assets/img/Pants4.png">
+      </article>
+    </div>
+
+    
+    <div class="tile is-parent">
+      <div style="font-size: small;" class="tile is-child box">
+          <img src="/assets/img/shirt5.png">
+          <div>
+            [Description]
           </div>
-          <p>
-            Built with Java using SpringBoot as the main powershouse interaction with a PostgreSQL server. 
-          </p>
+          <div>
+            Price: [price]
+          </div>
+
       </div>
-      <div class="column"></div>
     </div>
   </div>
+</section> -->
+
+<section style="background-color: darkslategray;">
+<div class="container">
+  <div class="row">
+     <ng-container *ngFor="let item of productList">
+      <div class="card col-md-3">
+          <img src="{{item.image}}" alt="">
+          <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.title }}</h5>
+          <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.description }}</p>
+          <p><strong>Price: </strong>${{item.price}}</p>
+          <button class="btn btn-primary" (click)="addToCart(item)">Add to Cart</button>
+      </div>
+     </ng-container>
+  </div>
+</div>
 </section>
--->
