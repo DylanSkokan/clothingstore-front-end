@@ -1,8 +1,8 @@
-export class Shirt {
-    productId: number;
+import { Product } from "./product";
+
+export class Shirt extends Product{
     price: number;
     stock: number;
-    brand: string;
     color: string;
     description: string;
     size: string;

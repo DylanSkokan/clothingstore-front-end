@@ -2,6 +2,11 @@
   <div class="hero-body">
     <div class = "container has-text-centered">
 
+<!-- placeholder shirts -->
+<div *ngFor="let shirt of shirts">
+  <button [routerLink]="['view-product', shirt.productId]">">{{ shirt.brand }}</button>
+</div>
+
 <div class="tile is-ancestor">
     <div class="tile is-parent">
       <article class="tile is-child box">

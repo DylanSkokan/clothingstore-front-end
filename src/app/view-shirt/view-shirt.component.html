@@ -1,0 +1,9 @@
+<app-view-product>
+  </app-view-product>
+      <!-- if shirt is not null, load details-->
+      <div class="shirt-detail" *ngIf="shirt">
+        <h2>{{ shirt.brand }}</h2>
+        <p>Color: {{ shirt.color }}</p>
+        <p>Size: {{ shirt.size }}</p>
+        <button (click)="addToCart(shirt)">Add to Cart</button>
+    </div>

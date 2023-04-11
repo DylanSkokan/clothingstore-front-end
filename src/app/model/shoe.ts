@@ -1,10 +1,10 @@
-export class Shoe {
-    brand: string;
+import { Product } from "./product";
+
+export class Shoe extends Product{
     color: string;
     description: string;
     fit: string;
     price: number;
-    productId: number;
     size: string;
     stock: number;
     type: number | null;

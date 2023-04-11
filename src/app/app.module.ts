@@ -22,6 +22,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductReviewComponent } from './review/review.component';
 import { UserAccountComponent } from './user-account/user-account.component';
+import { ViewShirtComponent } from './view-shirt/view-shirt.component';
+import { ViewPantsComponent } from './view-pants/view-pants.component';
+import { ViewShoesComponent } from './view-shoes/view-shoes.component';
+import { ViewHatComponent } from './view-hat/view-hat.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { UserAccountComponent } from './user-account/user-account.component';
     ShoppingCartComponent,
     ProductItemComponent,
     ProductReviewComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    ViewShirtComponent,
+    ViewPantsComponent,
+    ViewShoesComponent,
+    ViewHatComponent
 
   ],
   imports: [
