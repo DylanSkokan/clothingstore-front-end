@@ -17,15 +17,13 @@ import { ShoppingcartService } from '../service/shoppingcart.service';
 
 
 export class ShoppingCartComponent implements OnInit{
+  cart: Product []
 
+/*
   constructor(
     private shoppingcartService: ShoppingcartService) { 
       
     }
-
-  cart: Product []
-
-/*
   ngOnInit(): void {
     this.cart = this.shoppingcartService.getCart()
   }
