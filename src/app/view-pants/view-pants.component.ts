@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pants } from '../model/pants';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
-import { ShoppingcartService } from '../service/shoppingcart.service';
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-view-pants',
@@ -14,7 +14,7 @@ export class ViewPantsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
-    private shoppingcartService: ShoppingcartService) { 
+    private shoppingcartService: CartService) { 
       
     }
 

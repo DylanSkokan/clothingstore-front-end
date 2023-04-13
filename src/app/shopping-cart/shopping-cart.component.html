@@ -1,4 +1,5 @@
 
+
 <section class="hero is-warning is-bold is-small">
     <div class="hero-body">
       <div class="container">
@@ -9,7 +10,9 @@
     </div>
   </section>
 
-<ng-container *ngIf="products.length != 0">
+
+
+<ng-container *ngIf="cart.products.length != 0">
     <div class="container">
         <div class="card-table"></div>
         <div class="cart-product">
@@ -27,14 +30,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of products; let i = index">
+                    <!-- debug -->
+                    <div *ngFor="let product of cart.products">
+                        <h2>{{ product.brand}}</h2>
+                      </div>
+                    <tr *ngFor="let item of cart.products; let i = index">
                         <td>{{i + 1}}</td>
-                        <td>{{ item.title }}</td>
-                        <td><img style ="width: 120px;" src="{{item.image}}"></td>
-                        <td style="width: 25%">{{item.description}}</td>
+                        <td>{{ item.brand }}</td> <!-- name -->
+                        <td><img style ="width: 120px;" src="{{item.brand}}"></td> <!-- image path -->
+                        <td style="width: 25%">{{item.brand}}</td> <!-- description -->
                         <td style="width: 12%">{{item.price}}</td>
                         <td style="width: 12%">{{item.quantity}}</td>
-                        <td style="width: 12%">{{item.total}}</td>
+                        <td style="width: 12%">{{item.price}}</td> <!-- total for line item -->
                         <td>
                         <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt">&nbsp;&nbsp;</i>Delete</button>
                     </td>
@@ -44,7 +51,7 @@
                     <td><button (click)="emptyCart()" class="btn btn-danger">Empty Cart</button></td>
                     <td><button routerLink = "/" class="btn btn-primary">Shop More</button></td>
                     <td><button class="btn btn-success">Checkout</button></td>
-                    <td><strong>Grand Total: ${{grandTotal}}</strong></td>
+                    <td><strong>Grand Total: ${{cart.totalCost}}</strong></td>
                 </tr>
                 </tbody>
             </table>
@@ -52,7 +59,7 @@
     </div>
 </ng-container>
 
-<ng-container *ngIf="products.length==0">
+<ng-container *ngIf="cart.products.length==0">
     <div class="container">
         <div class="card">
             <h5 class="card-title">

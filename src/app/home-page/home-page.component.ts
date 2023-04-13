@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service'; 
-import { CartService } from 'src/app/cart.service';
+import { CartService } from 'src/app/service/cart.service';
 import { Customer } from '../model/customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../service/customer.service';
@@ -26,7 +26,7 @@ export class HomePageComponent {
   
   onSubmit() {
     this.customerService.login(this.customer.username, this.customer.password).subscribe(response => {
-      console.log('log in response:' + response);
+      console.log('HOME PAGE log in:' + response);
         
       if (response) {
         this.customerService.isLoggedIn = true;

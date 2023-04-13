@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, map } from 'rxjs';
 import { Customer } from '../model/customer';
 import { SessionService } from './session.service';
 
@@ -8,8 +8,11 @@ import { SessionService } from './session.service';
   providedIn: 'root'
 })
 export class CustomerService {
-
+  private customerUpdated = new Subject<void>();
   isLoggedIn: boolean;
+
+  public customerSubject = new BehaviorSubject<Customer | null>(null);
+  public customer$ = this.customerSubject.asObservable();
 
   constructor(private http: HttpClient, private sessionService: SessionService) {
     this.isLoggedIn = false;
@@ -28,18 +31,33 @@ export class CustomerService {
     return createAccountSuccess
   }
 
-  login(username: string, password: string): Observable<boolean> {
+  public updateCustomer(oldUsername: string, username: string, password: string, firstName: string, lastName: string, email: string):
+  Observable<boolean> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    const loginSuccess = this.http.post<boolean>('http://localhost:8080/customer/login', {username, password},
+    return this.http.post<boolean>
+    ('http://localhost:8080/customer/changeAccountInfo', 
+    {oldUsername, username, password, firstName, lastName, email},
     {headers: headers})
-    if(loginSuccess){
-      this.sessionService.setItem('loggedIn', username)
-    }
-    return loginSuccess
+  }
+
+  public getCustomer(username: string):
+  Observable<Customer> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post<Customer>
+    ('http://localhost:8080/customer/getCustomer', 
+    {username},
+    {headers: headers})
+  }
+
+  login(username: string, password: string): Observable<Customer> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post<Customer>('http://localhost:8080/customer/login', {username, password},
+    {headers: headers})
   }
 
   logout() {
     this.isLoggedIn = false;
-    this.sessionService.removeItem('loggedIn')
+    this.customerSubject.next(null);
+    this.sessionService.removeItem('customer')
   }
 }

@@ -75,7 +75,7 @@
               </span>
             </a>
             <a class="button is-primary" routerLink="/userAccount">
-              <strong>Account</strong>
+              <strong>{{ username ? username : 'Account' }}</strong>
             </a>
             <a class="button is-light" routerLink="" (click)="customerService.logout()">
               Logout

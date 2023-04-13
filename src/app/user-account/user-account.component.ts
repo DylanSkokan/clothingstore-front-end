@@ -4,6 +4,7 @@ import { AbstractControl, FormControl, FormGroup, NgForm, ValidationErrors, Vali
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customer.service';
+import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-user-account',
@@ -11,25 +12,48 @@ import { CustomerService } from '../service/customer.service';
   styleUrls: ['./user-account.component.css']
 })
 
-export class UserAccountComponent {
+export class UserAccountComponent implements OnInit {
 
   customer: Customer;
 
   constructor (
     private route: ActivatedRoute,
       private router: Router,
-        private customerService: CustomerService) {
-          this.customer = new Customer();
+        private customerService: CustomerService,
+        public sessionService: SessionService) {
         }
 
+  ngOnInit(): void {
+    this.customer = this.sessionService.getItem('customer')
+  }
+
   onSubmit(form: NgForm) {
-    alert(this.customer.username + "\n" + this.customer.password + "\n" + this.customer.firstName + "\n" + this.customer.lastName + "\n" + this.customer.email );
+
+    const oldUsername = this.sessionService.getItem('customer').username
+    const username = form.value.username;
+    const password = form.value.password;
+    const firstName = form.value.firstName;
+    const lastName = form.value.lastName;
+    const email = form.value.email;
+
+    console.log(password)
+
+    this.customerService.updateCustomer(oldUsername, username, password, firstName, lastName, email).subscribe(confirmation => {
+      if (confirmation) {
+        this.customerService.getCustomer(username).subscribe(updatedCust => {
+          console.log(updatedCust)
+          this.customerService.customerSubject.next(updatedCust)
+          this.sessionService.setItem('customer', updatedCust)
+          this.customer = updatedCust
+          this.router.navigate(['']);
+        });
+      }
+    });
     this.router.navigate(['']);
   }
 
 
 }
-
 
 /** 
  * Some things to verify

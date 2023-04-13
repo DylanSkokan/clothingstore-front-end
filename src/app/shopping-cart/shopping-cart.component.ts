@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { } from '@fortawesome/angular-fontawesome';
 
-import { CartService } from 'src/app/cart.service';
+import { CartService } from 'src/app/service/cart.service';
 
 import { Product } from '../model/product';
-import { ShoppingcartService } from '../service/shoppingcart.service';
+import { Subject, takeUntil } from 'rxjs';
 
-
+interface Cart {
+  products: Product[];
+  totalCost: number;
+}
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,10 +17,11 @@ import { ShoppingcartService } from '../service/shoppingcart.service';
   styleUrls: ['./shopping-cart.component.css']
 })
 
-
-
 export class ShoppingCartComponent implements OnInit{
-  cart: Product []
+  //cart: Product []
+  private unsubscribe = new Subject<void>();
+  cart: Cart = { products: [], totalCost: 0 };
+
 
 /*
   constructor(
@@ -27,20 +31,28 @@ export class ShoppingCartComponent implements OnInit{
   ngOnInit(): void {
     this.cart = this.shoppingcartService.getCart()
   }
+
+  public products : Product = [];
+  public grandTotal !: number;
 */ 
 
-  public products : any = [];
-  public grandTotal !: number;
+
   constructor(private cartService: CartService){}
 
   ngOnInit(): void {
-    this.cartService.getProducts()
-    .subscribe(res=>{
-      this.products = res;
-      this.grandTotal = this.cartService.getTotalPrice();
-    })
+      this.cart = this.cartService.getCart()
+      //this.products = res;
+      //this.grandTotal = this.cartService.getTotalPrice();
+
+      this.cartService.getCartUpdated()
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(() => {
+        this.cart = this.cartService.getCart();
+      });
+
   }
-  removeItem(item : any){
+
+  removeItem(item : Product){
     this.cartService.removeCartItem(item);
   }
 
