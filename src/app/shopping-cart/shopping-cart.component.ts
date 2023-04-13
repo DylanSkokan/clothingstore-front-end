@@ -17,11 +17,11 @@ import { ShoppingcartService } from '../service/shoppingcart.service';
 
 
 export class ShoppingCartComponent implements OnInit{
+  cart: Product []
 
   
-  cart: Product []
-  
   /*
+
   constructor(
     private shoppingcartService: ShoppingcartService) { 
       

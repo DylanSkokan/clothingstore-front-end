@@ -23,7 +23,7 @@ export class HomePageComponent {
         {
     this.customer = new Customer();
   }
-
+  
   onSubmit() {
     this.customerService.login(this.customer.username, this.customer.password).subscribe(response => {
       console.log('log in response:' + response);
