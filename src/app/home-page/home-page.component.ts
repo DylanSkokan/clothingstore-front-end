@@ -34,7 +34,7 @@ export class HomePageComponent {
         this.customerService.isLoggedIn = false;
       }
     });
-
+  }
   ngOnInit(): void {
     this.api.getAllProducts().subscribe(res=>{
       this.productList = res;
@@ -43,7 +43,7 @@ export class HomePageComponent {
         Object.assign(a, {quantity:1, total:a.price});
       })
     })
-
+  }
   addToCart(item : any){
     this.cartService.addToCart(item)
     
