@@ -21,7 +21,11 @@ export class CartService {
 
   constructor(private sessionService: SessionService) { 
     //set the cart to empty upon session creation
-    this.sessionService.setItem('cart', this.cart)
+    //if cart is null
+    let cart = this.sessionService.getItem('cart')
+    if(cart == null){
+      this.sessionService.setItem('cart', this.cart)
+    }
   }
 
   /*
@@ -34,6 +38,11 @@ export class CartService {
     this.productList.next(product);
   }
   */
+
+  setCart(cart: Cart) {
+    this.cart = cart
+    this.updateCart()
+  }
 
   getCartUpdated() {
     return this.cartUpdated.asObservable();
