@@ -39,7 +39,7 @@ export class CartService {
     return this.cartUpdated.asObservable();
   }
 
-  //call this method every time something is added to the cart
+  //call this method every time something changes with the cart
   updateCart() {
     //update cart's totalCost
     this.cart.totalCost = this.getTotalPrice();
@@ -123,7 +123,7 @@ export class CartService {
   getTotalPrice() {
     let grandTotal = 0;
     this.cart.products.map((product:Product)=>{
-        grandTotal += product.price
+        grandTotal += product.price * product.quantity
     })
     return grandTotal;
   }
