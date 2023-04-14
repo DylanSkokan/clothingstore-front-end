@@ -6,7 +6,6 @@ export class Pants extends Product{
     description: string;
     fit: string;
     pockets: boolean;
-    price: number;
     size: string;
     stock: number;
     type: number | null;
