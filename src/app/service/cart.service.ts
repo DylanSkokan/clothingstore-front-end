@@ -93,6 +93,7 @@ export class CartService {
     //else, add it to the cart normally
     if (!productAlreadyInCart) {
       console.log('Adding new item to cart')
+      product.quantity = 1
       this.cart.products.push(product);
       console.log(this.cart.products)
     }
