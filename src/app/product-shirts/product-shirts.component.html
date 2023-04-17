@@ -1,73 +1,17 @@
 <section class="hero is-dark is-bold is-fullheight">
   <div class="hero-body">
-    <div class = "container has-text-centered">
+    <div class="container has-text-centered">
 
-<!-- placeholder shirts -->
-<div *ngFor="let shirt of shirts">
-  <button [routerLink]="['view-product', shirt.productId]">">{{ shirt.brand }}</button>
-</div>
-
-<div class="tile is-ancestor">
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <a routerLink="/view-product">
-        <img src="assets/img/shirt1.png" alt="">
-        <div class="center">
-          <p>Shirt 1</p>
-
+      <!-- placeholder shirts -->
+      <div class="grid-container">
+        <div *ngFor="let shirt of shirts;">
+          <a [routerLink]="['view-product', shirt.productId]">
+            <!-- FIX ME: Change it so the proper shirt renders with the image -->
+            <img src="assets/img/shirt1.png">
+            <p> {{ shirt.brand }}</p>
+          </a>
         </div>
-        </a>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="assets/img/shirt2.png" alt="" id="shirt1">
-        <div class="center">
-          <p>Shirt 2</p>
-          
-        </div>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="assets/img/shirt3.png" alt="">
-        <div class="center">
-          <p>Shirt 3</p>
-          
-        </div>
-      </article>
-    </div>
-  </div>
-  
-  <div class="tile is-ancestor">
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="assets/img/shirt4.png" alt="">
-        <div class="center">
-          <p>Shirt 4</p>
-          
-        </div>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="assets/img/shirt5.png" alt="">
-        <div class="center">
-          <p>Shirt 5</p>
-          
-        </div>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-         <img src="assets/img/shirt6.png" alt="">
-         <div class="center">
-           <p>Shirt 6</p>
-          
-         </div>
-      </article>
-    </div>
-  </div>
+      </div>
 
     </div>
   </div>

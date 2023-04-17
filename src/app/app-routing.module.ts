@@ -18,6 +18,7 @@ import { ViewShirtComponent } from './view-shirt/view-shirt.component';
 import { ViewPantsComponent } from './view-pants/view-pants.component';
 import { ViewShoesComponent } from './view-shoes/view-shoes.component';
 import { ViewHatComponent } from './view-hat/view-hat.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 
 const routes: Routes = [  
@@ -38,7 +39,8 @@ const routes: Routes = [
   
   { path: 'shopping-cart', component: ShoppingCartComponent},
   { path: 'product-item', component: ProductItemComponent},
-  { path: 'userAccount', component: UserAccountComponent}
+  { path: 'userAccount', component: UserAccountComponent},
+  { path: 'checkoutPage', component: CheckoutPageComponent}
 
 ];
 

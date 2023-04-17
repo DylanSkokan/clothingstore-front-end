@@ -1,79 +1,18 @@
 <section class="hero is-dark is-bold is-fullheight">
   <div class="hero-body">
-    <div class = "container has-text-centered">
+    <div class="container has-text-centered">
 
-<!-- placeholder buttons -->
-<div *ngFor="let shoes of shoes">
-  <button [routerLink]="['view-product', shoes.productId]">">{{ shoes.brand }}</button>
-</div>
+      <!-- placeholder shirts -->
+      <div class="grid-container">
+        <div *ngFor="let shoe of shoes;">
+          <a [routerLink]="['view-product', shoe.productId]">
+            <!-- FIX ME: Change it so the proper shirt renders with the image -->
+            <img src="assets/img/shoes1.png">
+            <p> {{ shoe.brand }}</p>
+          </a>
+        </div>
+      </div>
 
-<div class="tile is-ancestor">
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <a routerLink="/view-product">
-          <div class="center">    
-            <img src="assets/img/shoes1.png" alt="">
-          </div>
-        <div class="center">
-          <p>Shoes 1</p>
-        </div>
-        </a>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <div class="center">    
-          <img src="assets/img/shoes2.png" alt="">
-        </div>
-        <div class="center">
-          <p>Shoes 2</p>
-        </div>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <div class="center">    
-          <img src="assets/img/shoes3.png" alt="">
-        </div>
-        <div class="center">
-          <p>Shoes 3</p>
-        </div>
-      </article>
     </div>
   </div>
-  <div class="tile is-ancestor">
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <div class="center">    
-          <img src="assets/img/shoes4.png" alt="">
-        </div>
-        <div class="center">
-          <p>Shoes 4</p>
-        </div>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <div class="center">    
-          <img src="assets/img/shoes5.png" alt="">
-        </div>
-        <div class="center">
-          <p>Shoes 5</p>
-        </div>
-      </article>
-    </div>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <div class="center">    
-          <img src="assets/img/shoes6.png" alt="">
-        </div>
-         <div class="center">
-           <p>Shoes 6</p>
-         </div>
-      </article>
-    </div>
-  </div>
-
-</div>
-</div>
 </section>

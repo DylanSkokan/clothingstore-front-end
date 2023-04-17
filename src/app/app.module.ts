@@ -26,6 +26,7 @@ import { ViewShirtComponent } from './view-shirt/view-shirt.component';
 import { ViewPantsComponent } from './view-pants/view-pants.component';
 import { ViewShoesComponent } from './view-shoes/view-shoes.component';
 import { ViewHatComponent } from './view-hat/view-hat.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ViewHatComponent } from './view-hat/view-hat.component';
     ViewShirtComponent,
     ViewPantsComponent,
     ViewShoesComponent,
-    ViewHatComponent
+    ViewHatComponent,
+    CheckoutPageComponent
 
   ],
   imports: [
