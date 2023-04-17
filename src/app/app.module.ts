@@ -27,6 +27,7 @@ import { ViewPantsComponent } from './view-pants/view-pants.component';
 import { ViewShoesComponent } from './view-shoes/view-shoes.component';
 import { ViewHatComponent } from './view-hat/view-hat.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

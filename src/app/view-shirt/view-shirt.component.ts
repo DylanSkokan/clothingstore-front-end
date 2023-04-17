@@ -4,6 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
 import { CartService } from '../service/cart.service';
 import { catchError, throwError } from 'rxjs';
+import { Review } from '../model/review';
+import { CustomerService } from '../service/customer.service';
+import { SessionService } from '../service/session.service';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-view-shirt',
@@ -12,14 +16,20 @@ import { catchError, throwError } from 'rxjs';
 })
 export class ViewShirtComponent implements OnInit {
   shirt: Shirt;
+  reviews: Review[];
+  showReviewForm = false;
+  newReviewText: string;
+  newReviewRating: number;
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
-    private shoppingcartService: CartService) { 
-      
+    private shoppingcartService: CartService,
+    public customerService: CustomerService,
+    private sessionService: SessionService) { 
     }
 
   ngOnInit(): void {
+
     // Get the productId route parameter
     const productId = this.route.snapshot.paramMap.get('productId');
 
@@ -36,6 +46,17 @@ export class ViewShirtComponent implements OnInit {
       this.shirt = shirt;
       console.log(shirt);
     });
+
+    // get the product reviews for this product ID
+    this.productService.getReviewsByProdId(parseInt(productId, 10)).pipe(
+      catchError(error => {
+        console.log(error);
+        return throwError(() => error);
+      })
+    ).subscribe(reviews => {
+      this.reviews = reviews;
+      console.log(reviews);
+    });
     }
   }
 
@@ -44,6 +65,22 @@ export class ViewShirtComponent implements OnInit {
     this.shoppingcartService.addToCart(shirt)
   }
 
+  submitReview(){
+  
+    if (this.newReviewText.trim()) {
+      let customer = this.sessionService.getItem('customer')
+      this.productService.postReview(this.newReviewRating, customer.userId, 
+        this.shirt.productId, this.newReviewText).subscribe(success => {
+        // Reset the form and get new reviews
+        this.newReviewText = '';
+        this.showReviewForm = false;
+      });
+
+
+    } else {
+      alert('Please write a review before submitting.');
+    }
+  }
 
   size: String;
 
