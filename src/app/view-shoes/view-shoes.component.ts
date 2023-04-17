@@ -3,6 +3,8 @@ import { Shoe } from '../model/shoe';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
 import { CartService } from '../service/cart.service';
+import { SessionService } from '../service/session.service';
+import { CustomerService } from '../service/customer.service';
 
 @Component({
   selector: 'app-view-shoes',
@@ -11,11 +13,15 @@ import { CartService } from '../service/cart.service';
 })
 export class ViewShoesComponent implements OnInit {
   shoes: Shoe;
+  newReviewText: string;
+  newReviewRating: number;
+  showReviewForm = false;
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
-    private shoppingcartService: CartService) { 
-      
+    private shoppingcartService: CartService,
+    private sessionService: SessionService,
+    public customerService: CustomerService) { 
     }
 
   ngOnInit(): void {
@@ -30,6 +36,19 @@ export class ViewShoesComponent implements OnInit {
       this.shoes = shoes;
       console.log(shoes)
     });
+    }
+  }
+
+  submitReview(){
+    if (this.newReviewText.trim()) {
+      let customer = this.sessionService.getItem('customer')
+      this.productService.postReview(this.newReviewRating, customer.userId, 
+        this.shoes.productId, this.newReviewText).subscribe(success => {
+        this.newReviewText = '';
+        this.showReviewForm = false;
+      });
+    } else {
+      alert('Please write a review before submitting.');
     }
   }
 

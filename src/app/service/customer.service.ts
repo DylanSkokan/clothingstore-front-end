@@ -9,7 +9,7 @@ import { SessionService } from './session.service';
 })
 export class CustomerService {
   private customerUpdated = new Subject<void>();
-  isLoggedIn: boolean;
+  public isLoggedIn: boolean;
 
   public customerSubject = new BehaviorSubject<Customer | null>(null);
   public customer$ = this.customerSubject.asObservable();
