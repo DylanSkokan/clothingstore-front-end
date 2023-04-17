@@ -66,17 +66,13 @@ export class ViewShirtComponent implements OnInit {
   }
 
   submitReview(){
-  
     if (this.newReviewText.trim()) {
       let customer = this.sessionService.getItem('customer')
       this.productService.postReview(this.newReviewRating, customer.userId, 
         this.shirt.productId, this.newReviewText).subscribe(success => {
-        // Reset the form and get new reviews
         this.newReviewText = '';
         this.showReviewForm = false;
       });
-
-
     } else {
       alert('Please write a review before submitting.');
     }

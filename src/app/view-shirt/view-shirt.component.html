@@ -53,7 +53,7 @@
     </div>
   </div>
 
-  <button (click)="showReviewForm = true" *ngIf="customerService.isLoggedIn">New Review</button>
+  <button class="button is-medium is-link" (click)="showReviewForm = true" *ngIf="customerService.isLoggedIn">New Review</button>
 
   <div *ngIf="showReviewForm">
     <form (ngSubmit)="submitReview()">
