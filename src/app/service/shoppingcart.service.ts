@@ -16,8 +16,14 @@ export class ShoppingcartService {
   constructor(private sessionService: SessionService) { }
 
   addToCart(product: Product) {
+
+    if (this.cart.includes(product)) {
+      
+    }
+      else {
     this.cart.push(product);
     this.sessionService.setItem('cart', this.cart);
+      }
   }
 
   removeFromCart(product: Product) {

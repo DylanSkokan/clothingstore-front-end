@@ -4,6 +4,7 @@ import { CartService } from 'src/app/cart.service';
 import { Customer } from '../model/customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../service/customer.service';
+import { ProductService } from '../service/product.service';
 
 
 @Component({
@@ -15,10 +16,16 @@ export class HomePageComponent {
   customer: Customer;
 
   public productList : any;
+  public pantsList : any;
+  public hatList : any;
+
+
+
   constructor(
     private route: ActivatedRoute, 
       private router: Router, 
         private customerService: CustomerService,
+        private productService: ProductService,
         private api : ApiService, private cartService : CartService)
         {
     this.customer = new Customer();
@@ -35,8 +42,12 @@ export class HomePageComponent {
       }
     });
   }
+
+
   ngOnInit(): void {
-    this.api.getAllProducts().subscribe(res=>{
+    
+    
+     this.api.getAllProducts().subscribe(res=>{
       this.productList = res;
 
       this.productList.forEach((a : any) =>{
@@ -44,10 +55,12 @@ export class HomePageComponent {
       })
     })
   }
+
+
+
   addToCart(item : any){
     this.cartService.addToCart(item)
     
     this.router.navigate(['']);
-
   }
 }

@@ -5,6 +5,7 @@ import { Shirt } from '../model/shirt';
 import { Shoe } from '../model/shoe';
 import { Pants } from '../model/pants';
 import { Hat } from '../model/hat';
+import { Product } from '../model/product';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,9 @@ export class ProductService {
 
   getHats(): Observable<string> {
     return this.http.get<string>('http://localhost:8080/hat/getAll')
+  }
+
+  getAllProducts(): Observable<Product> {
+    return this.http.get<Product>('http://localhost:8080/product/all')
   }
 }

@@ -16,8 +16,7 @@
             <table class="table table-responsive">
                 <thead>
                     <tr>
-                        <th>Sr.No</th>
-                        <th>Product Name</th>
+                        <th>Brand</th>
                         <th>Product Image</th>
                         <th>Description</th>
                         <th>Price</th>
@@ -28,9 +27,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of products; let i = index">
-                        <td>{{i + 1}}</td>
-                        <td>{{ item.title }}</td>
-                        <td><img style ="width: 120px;" src="{{item.image}}"></td>
+                        <td>{{ item.brand}}</td>
+                        <td><img style ="width: 120px;" src="{{item.imageSource}}"></td>
                         <td style="width: 25%">{{item.description}}</td>
                         <td style="width: 12%">{{item.price}}</td>
                         <td style="width: 12%">{{item.quantity}}</td>
@@ -60,7 +58,7 @@
             </h5>
         </div>
         <div class="center">
-            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"  alt="">
+            <img src="/assets/img/EmptyCartImg.png"  alt="">
             <h4>Your cart is currently empty.</h4>
             <button routerLink='/'class="button is-primary">Start Shopping</button>
         </div>
