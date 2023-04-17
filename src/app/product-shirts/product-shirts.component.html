@@ -4,7 +4,7 @@
       <!-- placeholder shirts -->
       <div class="grid-container">
         <div *ngFor="let shirt of shirts;">
-          <a [routerLink]="['view-product', shirt.productId]">
+          <a [routerLink]="['view-shirt', shirt.productId]">
             <!-- FIX ME: Change it so the proper shirt renders with the image -->
             <img src="assets/img/shirt1.png">
             <p> {{ shirt.brand }}</p>
