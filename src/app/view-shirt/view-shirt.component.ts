@@ -43,4 +43,11 @@ export class ViewShirtComponent implements OnInit {
     console.log('Added to cart:', shirt);
     this.shoppingcartService.addToCart(shirt)
   }
+
+
+  size: String;
+
+  pickingSize(e : any){
+    this.size = e.target.value
+  }
 }

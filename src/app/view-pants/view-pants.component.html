@@ -1,8 +1,67 @@
-<app-view-product>
-</app-view-product>
-    <div class="pants-detail" *ngIf="pants">
-      <h2>{{ pants.brand }}</h2>
-      <p>Color: {{ pants.color }}</p>
-      <p>Size: {{ pants.size }}</p>
-      <button (click)="addToCart(pants)">Add to Cart</button>
+<div class="background">
+
+  <div class="row">
+    <!-- This will be our image on the left column -->
+    <div class="column">
+      <div class="image-frame">
+
+        <!-- FIX ME: image should render with appropriate product -->
+        <img data-image="black" align="right" src="assets/img/pants1.png" alt="">
+
+      </div>
+    </div>
+
+    <!-- This will be our form to get sizing and display info on product on the right column -->
+    <div class="column">
+      <form>
+        <p class="title">{{ pants.brand }}</p>
+        <b>
+          <p>{{ pants.description }}</p>
+        </b>
+
+        <hr class="line">
+
+        <b>
+          <p>{{ pants.color }}</p>
+        </b>
+        <b>
+          <p>Price: ${{ pants.price }}</p>
+        </b>
+        <b>
+          <p>Size: {{ pants.size }}</p>
+        </b><br>
+
+        <!-- <div class="style">
+          <b>
+          <input type="radio" id="small" name="size" value="small" (change)="pickingSize($event)" checked>
+          <label for="small"> Small</label><br>
+
+          <input [(ngModel)]="size" type="radio" id="medium" name="size" value="medium" (change)="pickingSize($event)">
+          <label for="medium"> Medium</label><br>
+
+          <input [(ngModel)]="size" type="radio" id="large" name="size" value="large" (change)="pickingSize($event)">
+          <label for="large"> Large</label><br>
+
+          <input [(ngModel)]="size" type="radio" id="x-large" name="size" value="x-large" (change)="pickingSize($event)">
+          <label for="x-large"> Extra Large</label><br><br>
+          </b>
+        </div> -->
+
+
+        <button (click)="addToCart(pants)" class="button is-medium is-link" value="Submit">Add To Cart</button>
+      </form>
+    </div>
   </div>
+
+  <app-product-review></app-product-review>
+  <app-product-review></app-product-review>
+
+</div>
+
+<!-- if shirt is not null, load details-->
+<!-- <div class="shirt-detail" *ngIf="shirt">
+  <h2>{{ shirt.brand }}</h2>
+  <p>Color: {{ shirt.color }}</p>
+  <p>Size: {{ shirt.size }}</p>
+  <button (click)="addToCart(shirt)">Add to Cart</button>
+</div> -->
