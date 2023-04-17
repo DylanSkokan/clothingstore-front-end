@@ -6,6 +6,7 @@ import { Shoe } from '../model/shoe';
 import { Pants } from '../model/pants';
 import { Hat } from '../model/hat';
 import { Product } from '../model/product';
+import { Review } from '../model/review';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,21 @@ export class ProductService {
     //NEED TO USE "BACK TICKS" instead of single quotes when sending ID
     return this.http.get<Shirt>(`http://localhost:8080/shirt/getById/${id}`)
   }
+
+  getReviewsByProdId(id: number): Observable<Review[]> {
+    return this.http.get<Review[]>(`http://localhost:8080/productReview/getById/${id}`)
+  }
+
+  postReview(rating: number, userId: number, productId: number, review: string):
+  Observable<boolean> {
+    console.log('in postreview in service')
+    console.log(userId)
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post<boolean>
+    ('http://localhost:8080/productReview/saveProductReview', 
+    {rating, userId, productId, review},
+    {headers: headers})
+  } 
 
   getShoesById(id: number): Observable<Shoe> {
     return this.http.get<Shoe>(`http://localhost:8080/shoes/getById/${id}`)

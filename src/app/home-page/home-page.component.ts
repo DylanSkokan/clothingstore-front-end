@@ -5,6 +5,11 @@ import { Customer } from '../model/customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../service/customer.service';
 import { ProductService } from '../service/product.service';
+import { Product } from '../model/product';
+import { Shirt } from '../model/shirt';
+import { Pants } from '../model/pants';
+import { Hat } from '../model/hat';
+import { Shoe } from '../model/shoe';
 
 
 @Component({
@@ -45,8 +50,6 @@ export class HomePageComponent {
 
 
   ngOnInit(): void {
-    
-    
      this.api.getAllProducts().subscribe(res=>{
       this.productList = res;
 
@@ -56,7 +59,32 @@ export class HomePageComponent {
     })
   }
 
-
+  seeDetails(product: Product) {
+    console.log('in see details')
+    console.log(product)
+    console.log(product.prodType)
+    switch (product.prodType) {
+      case 'shirt':
+        console.log('1')
+        this.router.navigate(['product-shirts/view-shirt', product.productId]);
+        break;
+      case 'pants':
+        console.log('2')
+        this.router.navigate(['product-pants/view-pants', product.productId]);
+        break;
+      case 'hat':
+        console.log('3')
+        this.router.navigate(['product-hats/view-hat', product.productId]);
+        break;
+      case 'shoes':
+        console.log('4')
+        this.router.navigate(['product-shoes/view-shoes', product.productId]);
+        break;
+      default:
+        // handle invalid product type
+        break;
+    }
+  }
 
   addToCart(item : any){
     this.cartService.addToCart(item)

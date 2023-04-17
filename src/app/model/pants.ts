@@ -1,6 +1,11 @@
 import { Product } from "./product";
 
 export class Pants extends Product{
+    constructor() {
+        super();
+        this.prodType = 'pants';
+    }
+
     beltloops: boolean;
     color: string;
     fit: string;
