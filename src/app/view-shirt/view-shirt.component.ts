@@ -3,6 +3,7 @@ import { Shirt } from '../model/shirt';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
 import { CartService } from '../service/cart.service';
+import { catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-view-shirt',
@@ -26,9 +27,14 @@ export class ViewShirtComponent implements OnInit {
 
     if(productId !== null){
     // Fetch the shirt object using the productId
-    this.productService.getShirtById(parseInt(productId, 10)).subscribe(shirt => {
+    this.productService.getShirtById(parseInt(productId, 10)).pipe(
+      catchError(error => {
+        console.log(error);
+        return throwError(() => error);
+      })
+    ).subscribe(shirt => {
       this.shirt = shirt;
-      console.log(shirt)
+      console.log(shirt);
     });
     }
   }
