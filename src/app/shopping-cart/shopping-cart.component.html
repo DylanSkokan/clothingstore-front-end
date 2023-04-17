@@ -1,5 +1,4 @@
 
-
 <section class="hero is-warning is-bold is-small">
     <div class="hero-body">
       <div class="container">
@@ -10,17 +9,14 @@
     </div>
   </section>
 
-
-
-<ng-container *ngIf="cart.products.length != 0">
+<ng-container *ngIf="products.length != 0">
     <div class="container">
         <div class="card-table"></div>
         <div class="cart-product">
             <table class="table table-responsive">
                 <thead>
                     <tr>
-                        <th>Sr.No</th>
-                        <th>Product Name</th>
+                        <th>Brand</th>
                         <th>Product Image</th>
                         <th>Description</th>
                         <th>Price</th>
@@ -30,14 +26,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of cart.products; let i = index">
-                        <td>{{i + 1}}</td>
-                        <td>{{ item.brand }}</td> <!-- name -->
-                        <td><img style ="width: 120px;" src="{{item.brand}}"></td> <!-- image path -->
-                        <td style="width: 25%">{{item.description}}</td> <!-- description -->
+                    <tr *ngFor="let item of products; let i = index">
+                        <td>{{ item.brand}}</td>
+                        <td><img style ="width: 120px;" src="{{item.imageSource}}"></td>
+                        <td style="width: 25%">{{item.description}}</td>
                         <td style="width: 12%">{{item.price}}</td>
                         <td style="width: 12%">{{item.quantity}}</td>
-                        <td style="width: 12%">{{item.quantity * item.price}}</td> <!-- total for line item -->
+                        <td style="width: 12%">{{item.total}}</td>
                         <td>
                         <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt">&nbsp;&nbsp;</i>Delete</button>
                     </td>
@@ -46,8 +41,8 @@
                     <td colspan="4"></td>
                     <td><button (click)="emptyCart()" class="btn btn-danger">Empty Cart</button></td>
                     <td><button routerLink = "/" class="btn btn-primary">Shop More</button></td>
-                    <td><button routerLink = "/checkoutPage" class="btn btn-success">Checkout</button></td>
-                    <td><strong>Grand Total: ${{cart.totalCost}}</strong></td>
+                    <td><button class="btn btn-success">Checkout</button></td>
+                    <td><strong>Grand Total: ${{grandTotal}}</strong></td>
                 </tr>
                 </tbody>
             </table>
@@ -55,7 +50,7 @@
     </div>
 </ng-container>
 
-<ng-container *ngIf="cart.products.length==0">
+<ng-container *ngIf="products.length==0">
     <div class="container">
         <div class="card">
             <h5 class="card-title">
@@ -63,7 +58,7 @@
             </h5>
         </div>
         <div class="center">
-            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"  alt="">
+            <img src="/assets/img/EmptyCartImg.png"  alt="">
             <h4>Your cart is currently empty.</h4>
             <button routerLink='/'class="button is-primary">Start Shopping</button>
         </div>

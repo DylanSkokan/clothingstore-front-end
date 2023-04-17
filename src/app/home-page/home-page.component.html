@@ -9,129 +9,25 @@
   </div>
 </section>
 
-<!-- 
-<section class="section">
-  <div class="container is-dark has-text-centered box">
-    <p class="title is-1">
-      ICS 499 - Capstone Project
-    </p>
-    <p class="subtitle">
-      An e-commerce web application. 
-    </p>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container">
-    <h1 style = "padding-bottom: 15px;"class="subtitle">
-      Popular Products
-    </h1>
-  </div>
-
-
-  <div class="tile is-ancestor">
-
- 
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/Pants6.png">
-      </article>
-    </div>
-
-    
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/hat1.png">
-      </article>
-    </div>
-    
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/shirt1.png">
-      </article>
-    </div>
-
-   
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/Pants2.png">
-      </article>
-    </div>
-
-    
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-          <img src="/assets/img/shoes5.png">
-      </article>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container">
-    <h1 style = "padding-bottom: 15px;"class="subtitle">
-      Hot and New!
-    </h1>
-  </div>
-
-
-  <div class="tile is-ancestor">
-
-    
-    <div class="tile is-parent">
-      <div class="tile is-child box">
-        <img src="/assets/img/shoes2.png">
-      </div>
-    </div>
-
-    
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/hat3.png">
-      </article>
-    </div>
-    
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/Pants5.png">
-      </article>
-    </div>
-
-    
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <img src="/assets/img/Pants4.png">
-      </article>
-    </div>
-
-    
-    <div class="tile is-parent">
-      <div style="font-size: small;" class="tile is-child box">
-          <img src="/assets/img/shirt5.png">
-          <div>
-            [Description]
-          </div>
-          <div>
-            Price: [price]
-          </div>
-
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <section style="background-color: darkslategray;">
 <div class="container">
   <div class="row">
      <ng-container *ngFor="let item of productList">
       <div class="card col-md-3">
-          <img src="{{item.image}}" alt="">
+          <img src="{{item.imageSource}}" alt="">
           <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.title }}</h5>
           <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.description }}</p>
           <p><strong>Price: </strong>${{item.price}}</p>
-          <button class="btn btn-primary" (click)="addToCart(item)">Add to Cart</button>
+          
+          <div class="columns">
+            <div class="column">
+            <button class="btn btn-primary" (click)="addToCart(item)">See Details</button>
+          </div>
+          <div class="column">
+            <button class="btn btn-primary" (click)="addToCart(item)">Add to Cart</button>
+          </div>
+          </div>
       </div>
      </ng-container>
   </div>
