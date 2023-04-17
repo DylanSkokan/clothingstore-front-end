@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Hat } from '../model/hat';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
-import { ShoppingcartService } from '../service/shoppingcart.service';
+import { CartService } from '../service/cart.service';
+import { CustomerService } from '../service/customer.service';
+import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-view-hat',
@@ -11,11 +13,15 @@ import { ShoppingcartService } from '../service/shoppingcart.service';
 })
 export class ViewHatComponent implements OnInit {
   hat: Hat;
+  newReviewText: string;
+  newReviewRating: number;
+  showReviewForm = false;
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
-    private shoppingcartService: ShoppingcartService) { 
-      
+    private shoppingcartService: CartService,
+    private sessionService: SessionService,
+    public customerService: CustomerService) { 
     }
 
   ngOnInit(): void {
@@ -30,6 +36,19 @@ export class ViewHatComponent implements OnInit {
       this.hat = hat;
       console.log(hat)
     });
+    }
+  }
+
+  submitReview(){
+    if (this.newReviewText.trim()) {
+      let customer = this.sessionService.getItem('customer')
+      this.productService.postReview(this.newReviewRating, customer.userId, 
+        this.hat.productId, this.newReviewText).subscribe(success => {
+        this.newReviewText = '';
+        this.showReviewForm = false;
+      });
+    } else {
+      alert('Please write a review before submitting.');
     }
   }
 

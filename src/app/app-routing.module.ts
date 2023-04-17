@@ -18,6 +18,7 @@ import { ViewShirtComponent } from './view-shirt/view-shirt.component';
 import { ViewPantsComponent } from './view-pants/view-pants.component';
 import { ViewShoesComponent } from './view-shoes/view-shoes.component';
 import { ViewHatComponent } from './view-hat/view-hat.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 
 const routes: Routes = [  
@@ -31,14 +32,15 @@ const routes: Routes = [
   { path: 'product-shoes', component: ProductShoesComponent },
   { path: 'product-hats', component: ProductHatsComponent },
   { path: 'view-product', component: ViewProductComponent},
-  { path: 'product-shirts/view-product/:productId', component: ViewShirtComponent},
-  { path: 'product-pants/view-product/:productId', component: ViewPantsComponent},
-  { path: 'product-shoes/view-product/:productId', component: ViewShoesComponent},
-  { path: 'product-hats/view-product/:productId', component: ViewHatComponent},
+  { path: 'product-shirts/view-shirt/:productId', component: ViewShirtComponent},
+  { path: 'product-pants/view-pants/:productId', component: ViewPantsComponent},
+  { path: 'product-shoes/view-shoes/:productId', component: ViewShoesComponent},
+  { path: 'product-hats/view-hat/:productId', component: ViewHatComponent},
   
   { path: 'shopping-cart', component: ShoppingCartComponent},
   { path: 'product-item', component: ProductItemComponent},
-  { path: 'userAccount', component: UserAccountComponent}
+  { path: 'userAccount', component: UserAccountComponent},
+  { path: 'checkoutPage', component: CheckoutPageComponent}
 
 ];
 

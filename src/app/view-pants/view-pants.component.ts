@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Pants } from '../model/pants';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
-import { ShoppingcartService } from '../service/shoppingcart.service';
+import { CartService } from '../service/cart.service';
+import { SessionService } from '../service/session.service';
+import { CustomerService } from '../service/customer.service';
 
 @Component({
   selector: 'app-view-pants',
@@ -11,11 +13,15 @@ import { ShoppingcartService } from '../service/shoppingcart.service';
 })
 export class ViewPantsComponent implements OnInit {
   pants: Pants;
+  newReviewText: string;
+  newReviewRating: number;
+  showReviewForm = false;
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
-    private shoppingcartService: ShoppingcartService) { 
-      
+    private shoppingcartService: CartService,
+    private sessionService: SessionService,
+    public customerService: CustomerService) { 
     }
 
   ngOnInit(): void {
@@ -33,6 +39,19 @@ export class ViewPantsComponent implements OnInit {
     }
   }
 
+  submitReview(){
+    if (this.newReviewText.trim()) {
+      let customer = this.sessionService.getItem('customer')
+      this.productService.postReview(this.newReviewRating, customer.userId, 
+        this.pants.productId, this.newReviewText).subscribe(success => {
+        this.newReviewText = '';
+        this.showReviewForm = false;
+      });
+    } else {
+      alert('Please write a review before submitting.');
+    }
+  }
+  
   addToCart(pants: Pants) {
     console.log('Added to cart:', pants);
     this.shoppingcartService.addToCart(pants)

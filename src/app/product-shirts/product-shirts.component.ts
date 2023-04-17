@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductShirtsComponent implements OnInit {
 
+
   shirts: Shirt[]
 
   constructor(
