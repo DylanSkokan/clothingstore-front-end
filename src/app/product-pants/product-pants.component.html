@@ -5,8 +5,7 @@
       <div class="grid-container">
         <div *ngFor="let pant of pants;">
           <a [routerLink]="['view-pants', pant.productId]">
-            <!-- FIX ME: Change it so the proper shirt renders with the image -->
-            <img src="assets/img/pants1.png">
+            <img src="{{pant.imageSource}}">
             <p> {{ pant.brand }}</p>
           </a>
         </div>

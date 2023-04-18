@@ -32,7 +32,7 @@
                         <td style="width: 25%">{{item.description}}</td>
                         <td style="width: 12%">{{item.price}}</td>
                         <td style="width: 12%">{{item.quantity}}</td>
-                        <td style="width: 12%">{{item.quantity * item.price}}</td>
+                        <td style="width: 12%">{{item.quantity * item.price | currency}}</td> <!-- 2 decimal format-->
                         <td>
                         <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt">&nbsp;&nbsp;</i>Delete</button>
                     </td>
@@ -41,8 +41,8 @@
                     <td colspan="4"></td>
                     <td><button (click)="emptyCart()" class="btn btn-danger">Empty Cart</button></td>
                     <td><button routerLink = "/" class="btn btn-primary">Shop More</button></td>
-                    <td><button class="btn btn-success">Checkout</button></td>
-                    <td><strong>Grand Total: ${{cart.totalCost}}</strong></td>
+                    <td><button routerLink = "/checkoutPage" class="btn btn-success">Checkout</button></td>
+                    <td><strong>Grand Total: {{cart.totalCost  | currency}}</strong></td>
                 </tr>
                 </tbody>
             </table>

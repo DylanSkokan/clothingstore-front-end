@@ -48,7 +48,6 @@ export class HomePageComponent {
     });
   }
 
-
   ngOnInit(): void {
      this.api.getAllProducts().subscribe(res=>{
       this.productList = res;
