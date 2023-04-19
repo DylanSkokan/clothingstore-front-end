@@ -20,11 +20,11 @@ import { Shoe } from '../model/shoe';
 export class HomePageComponent {
   customer: Customer;
 
-  public productList : any;
-  public pantsList : any;
-  public hatList : any;
-
-
+  public productList : Product[] = [];
+  public pantsList : Pants[];
+  public hatList : Hat[];
+  public shirtList : Shirt[];
+  public shoesList : Shoe[];
 
   constructor(
     private route: ActivatedRoute, 
@@ -49,38 +49,52 @@ export class HomePageComponent {
   }
 
   ngOnInit(): void {
-     this.api.getAllProducts().subscribe(res=>{
-      this.productList = res;
+    this.productService.getHats().subscribe(hats=>{
+      this.hatList = hats as unknown as Hat[];
+      this.hatList.forEach(hat => {
+        hat.prodType = 'hat';
+      });
+      this.productList = this.productList.concat(this.hatList);
+    })
 
-      this.productList.forEach((a : any) =>{
-        Object.assign(a, {quantity:1, total:a.price});
-      })
+    this.productService.getPants().subscribe(pants=>{
+      this.pantsList = pants as unknown as Pants[];
+      this.pantsList.forEach(pants => {
+        pants.prodType = 'pants';
+      });
+      this.productList = this.productList.concat(this.pantsList);
+    })
+
+    this.productService.getShirts().subscribe(shirts=>{
+      this.shirtList = shirts as unknown as Shirt[];
+      this.shirtList.forEach(shirts => {
+        shirts.prodType = 'shirt';
+      });
+      this.productList = this.productList.concat(this.shirtList);
+    })
+
+    this.productService.getShoes().subscribe(shoes=>{
+      this.shoesList = shoes as unknown as Shoe[];
+      this.shoesList.forEach(shoes => {
+        shoes.prodType = 'shoes';
+      });
+      this.productList = this.productList.concat(this.shoesList);
     })
   }
 
   seeDetails(product: Product) {
-    console.log('in see details')
-    console.log(product)
-    console.log(product.prodType)
     switch (product.prodType) {
       case 'shirt':
-        console.log('1')
         this.router.navigate(['product-shirts/view-shirt', product.productId]);
         break;
       case 'pants':
-        console.log('2')
         this.router.navigate(['product-pants/view-pants', product.productId]);
         break;
       case 'hat':
-        console.log('3')
         this.router.navigate(['product-hats/view-hat', product.productId]);
         break;
       case 'shoes':
-        console.log('4')
         this.router.navigate(['product-shoes/view-shoes', product.productId]);
-        break;
-      default:
-        // handle invalid product type
         break;
     }
   }

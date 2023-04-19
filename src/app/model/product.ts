@@ -1,5 +1,5 @@
 export class Product {
-    prodType: string;
+    prodType: string = "none";
     productId: number;
     brand: string;
     quantity: number = 1;
