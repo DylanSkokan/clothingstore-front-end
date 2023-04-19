@@ -16,7 +16,7 @@
      <ng-container *ngFor="let item of productList">
       <div class="card col-md-3">
           <div class="center"><img src="{{item.imageSource}}" alt=""></div>
-          <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.title }}</h5>
+          <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.brand }}</h5>
           <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.description }}</p>
           <p><strong>Price: </strong>${{item.price}}</p>
           
