@@ -1,6 +1,6 @@
 <!-- FIX ME: Add proper CSS or use bulma framework, this is just a placeholder for now -->
 
-<body>
+<!-- <body>
 	<h1>Checkout</h1>
 	<form action="#" method="post">
 		<h2>Billing Information</h2>
@@ -25,4 +25,138 @@
 
 		<input type="submit" value="Submit">
 	</form>
-</body>
+</body> -->
+
+<section class="hero is-primary is-bold">
+	<div class="hero-body">
+	  <div class="container">
+		<p class="title">
+		  Check Out
+		</p>
+	  </div>
+	</div>
+  </section>
+
+  <section class="section">
+	<div class="class container">
+		<div class="columns">
+			<div class="column">
+				<form>
+					<label style="font-size: x-large" class="label">Payment Information</label>
+
+					<div class="dropdown is-hoverable">
+						<div class="dropdown-trigger">
+						  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+							<span>Payment Type</span>
+							<span class="icon is-small">
+							  <i class="fas fa-angle-down" aria-hidden="true"></i>
+							</span>
+						  </button>
+						</div>
+						<div class="dropdown-menu" id="dropdown-menu4" role="menu">
+						  <div class="dropdown-content">
+							<div class="dropdown-item">
+							  <p>Visa</p>
+							</div>
+						  </div>
+						</div>
+					  </div>
+
+					<div class="field">
+						<label class="label">Cardholder Name</label>
+						<input type="text" 
+							id="cardholder-name" 
+							name="cardholder-name" 
+							placeholder="Cardholder Name"
+							class="input"
+							required>
+					</div>
+					<div class="field">
+						<label class="label">Payment Type</label>
+						<input type="text" 
+							id="cardholder-name" 
+							name="cardholder-name" 
+							placeholder="Cardholder Name"
+							class="input"
+							required>
+					</div>
+
+					<div class="field">
+						<label class="label">Credit Card Number</label>
+						<input type="text" 
+							id="card-number" 
+							name="card-number" 
+							placeholder="Credit Card Number"
+							class="input"
+							required>
+					</div>
+					<div class="field">
+						<label class="label">Expiration Date</label>
+						<input type="text" 
+							id="expiration-date" 
+							name="expiration-date" 
+							placeholder="Expiration Date"
+							class="input"
+							required>
+					</div>
+					<div class="field">
+						<label class="label">Security Code</label>
+						<input type="text" 
+							id="security-code" 
+							name="security-code" 
+							placeholder="Security Code"
+							class="input"
+							required>
+					</div>
+				</form>
+			</div>
+			<div class="column">
+				<form>
+					<label style="font-size: x-large" class="label">Shipping Information</label>
+					<div class="field">
+						<label class="label">Street</label>
+						<input type="text" 
+							id="street" 
+							name="street" 
+							placeholder="Street"
+							class="input"
+							required>
+					</div>
+					<div class="field">
+						<label class="label">City</label>
+						<input type="text" 
+							id="city" 
+							name="city" 
+							placeholder="City"
+							class="input"
+							required>
+					</div>
+					<div class="field">
+						<label class="label">State</label>
+						<input type="text" 
+							id="state" 
+							name="state" 
+							placeholder="State"
+							class="input"
+							required>
+					</div>
+					<div class="field">
+						<label class="label">Zip Code</label>
+						<input type="text" 
+							id="zip-code" 
+							name="zip-code" 
+							placeholder="Zip Code"
+							class="input"
+							required>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+		<button style="float: right;" class="button is-large is-warning"> 
+			Place Order
+		</button>
+	</div>
+	
+  </section> 

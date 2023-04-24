@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service'; 
 import { CartService } from 'src/app/service/cart.service';
 import { Customer } from '../model/customer';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -31,7 +30,7 @@ export class HomePageComponent {
       private router: Router, 
         private customerService: CustomerService,
         private productService: ProductService,
-        private api : ApiService, private cartService : CartService)
+        private cartService : CartService)
         {
     this.customer = new Customer();
   }
