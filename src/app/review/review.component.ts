@@ -12,16 +12,18 @@ export class ProductReviewComponent implements OnInit {
   userName = "Placeholder for username"
   goodOrBad = "Placeholder for recommend or not"
   reviewBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis."
-  customerService: CustomerService;
-
-  //test comment
+  
+  
+  constructor(
+    public customerService: CustomerService) { 
+    }
 
   ngOnInit(): void {
 
     const userId = this.review.userAccountId
 
     if(userId !== null){
-      this.customerService.getCustById("string").subscribe((customer) => {
+      this.customerService.getCustById(userId.toString()).subscribe((customer) => {
         this.userName = customer.username;
         console.log(customer)
       });

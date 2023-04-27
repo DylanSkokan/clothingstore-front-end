@@ -44,7 +44,7 @@ export class ViewPantsComponent implements OnInit {
       this.productReviews = productReviews;
       console.log(productReviews)
     });
-
+    
     }
   }
 
