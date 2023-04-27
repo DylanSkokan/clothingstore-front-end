@@ -70,8 +70,11 @@
     </form>
   </div>
 
-  <app-product-review></app-product-review>
-  <app-product-review></app-product-review>
+  <p>{{productReviews[1].review}}</p>
+
+  <app-product-review [review] = "productReviews[0]"></app-product-review>
+  <app-product-review [review] = "productReviews[1]"></app-product-review>
+  
 
 </div>
 

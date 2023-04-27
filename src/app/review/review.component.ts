@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Review } from '../model/review';
 
 @Component({
   selector: 'app-product-review',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./review.component.css']
 })
 export class ProductReviewComponent {
+  @Input() review: Review
   userName = "Placeholder for username"
-  goodOrBad = "Placholder for recommend or not"
+  goodOrBad = "Placeholder for recommend or not"
+  reviewBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis."
 }
