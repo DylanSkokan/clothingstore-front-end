@@ -5,6 +5,8 @@ import { ProductService } from '../service/product.service';
 import { CartService } from '../service/cart.service';
 import { SessionService } from '../service/session.service';
 import { CustomerService } from '../service/customer.service';
+import { Review } from '../model/review';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-view-pants',
@@ -16,6 +18,7 @@ export class ViewPantsComponent implements OnInit {
   newReviewText: string;
   newReviewRating: number;
   showReviewForm = false;
+  productReviews: Review[];
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
@@ -36,6 +39,12 @@ export class ViewPantsComponent implements OnInit {
       this.pants = pants;
       console.log(pants)
     });
+
+    this.productService.getReviewsByProdId(parseInt(productId, 10)).subscribe(productReviews => {
+      this.productReviews = productReviews;
+      console.log(productReviews)
+    });
+
     }
   }
 
@@ -56,4 +65,8 @@ export class ViewPantsComponent implements OnInit {
     console.log('Added to cart:', pants);
     this.shoppingcartService.addToCart(pants)
   }
+
+  
+
+  
 }
