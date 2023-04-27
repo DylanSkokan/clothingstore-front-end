@@ -41,7 +41,7 @@
 	<div class="class container">
 		<div class="columns">
 			<div class="column">
-				<form>
+				<form (ngSubmit)="onSubmit(orderInformationForm)" #orderInformationForm="ngForm">
 					<label style="font-size: x-large" class="label">Payment Information</label>
 
 					<div class="dropdown is-hoverable">
@@ -154,7 +154,7 @@
 			</div>
 
 		</div>
-		<button style="float: right;" class="button is-large is-warning"> 
+		<button (click)="onButtonClick()" style="float: right;" class="button is-large is-warning"> 
 			Place Order
 		</button>
 	</div>
