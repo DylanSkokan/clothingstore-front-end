@@ -70,14 +70,9 @@
     </form>
   </div>
 
-  <p>{{productReviews[1].review}}</p>
-
   <div *ngFor = "let review of productReviews; let i = index">
     <app-product-review [review]="productReviews[i]"></app-product-review>
   </div>
-
-  <app-product-review [review] = "productReviews[0]"></app-product-review>
-  <app-product-review [review] = "productReviews[1]"></app-product-review>
   
 
 </div>

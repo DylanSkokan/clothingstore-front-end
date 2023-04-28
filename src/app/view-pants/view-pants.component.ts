@@ -55,6 +55,9 @@ export class ViewPantsComponent implements OnInit {
         this.pants.productId, this.newReviewText).subscribe(success => {
         this.newReviewText = '';
         this.showReviewForm = false;
+
+        this.ngOnInit();
+        
       });
     } else {
       alert('Please write a review before submitting.');
