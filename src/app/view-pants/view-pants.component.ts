@@ -31,20 +31,12 @@ export class ViewPantsComponent implements OnInit {
     // Get the productId route parameter
     const productId = this.route.snapshot.paramMap.get('productId');
 
-    console.log('product id for these sheos', productId)
-
-    if(productId !== null){
+    if(productId !== null && productId !== undefined){
     // Fetch the shirt object using the productId
     this.productService.getPantsById(parseInt(productId, 10)).subscribe(pants => {
       this.pants = pants;
       console.log(pants)
     });
-
-    this.productService.getReviewsByProdId(parseInt(productId, 10)).subscribe(productReviews => {
-      this.productReviews = productReviews;
-      console.log(productReviews)
-    });
-    
     }
   }
 
@@ -52,7 +44,7 @@ export class ViewPantsComponent implements OnInit {
     if (this.newReviewText.trim()) {
       let customer = this.sessionService.getItem('customer')
       this.productService.postReview(this.newReviewRating, customer.userId, 
-        this.pants.productId, this.newReviewText).subscribe(success => {
+        this.pants.productId, this.newReviewText, customer.username).subscribe(success => {
         this.newReviewText = '';
         this.showReviewForm = false;
       });

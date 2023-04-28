@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Review } from '../model/review';
 import { CustomerService } from '../service/customer.service';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../service/product.service';
+import { CartService } from '../service/cart.service';
+import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-product-review',
@@ -8,27 +12,27 @@ import { CustomerService } from '../service/customer.service';
   styleUrls: ['./review.component.css']
 })
 export class ProductReviewComponent implements OnInit {
-  @Input() review: Review
-  userName = "Placeholder for username"
-  goodOrBad = "Placeholder for recommend or not"
-  reviewBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis."
-  
-  
-  constructor(
-    public customerService: CustomerService) { 
+  reviews: Review[]
+
+  constructor(private route: ActivatedRoute,
+    private productService: ProductService,
+    private shoppingcartService: CartService,
+    private sessionService: SessionService) { 
     }
 
   ngOnInit(): void {
-
-    const userId = this.review.userAccountId
-
-    if(userId !== null){
-      this.customerService.getCustById(userId.toString()).subscribe((customer) => {
-        this.userName = customer.username;
-        console.log(customer)
-      });
-    }
-
+    this.updateReviews()
   }
 
+  updateReviews(){
+    const productId = this.route.snapshot.paramMap.get('productId');
+
+    console.log('get review of this product: ', productId)
+    
+    if(productId !== null && productId !== undefined){
+      this.productService.getReviewsByProdId(parseInt(productId, 10)).subscribe(productReviews => {
+        this.reviews = productReviews;
+      });
+    }
+  }
 }

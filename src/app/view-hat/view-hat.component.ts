@@ -28,8 +28,6 @@ export class ViewHatComponent implements OnInit {
     // Get the productId route parameter
     const productId = this.route.snapshot.paramMap.get('productId');
 
-    console.log('product id for these sheos', productId)
-
     if(productId !== null){
     // Fetch the shirt object using the productId
     this.productService.getHatById(parseInt(productId, 10)).subscribe(hat => {
@@ -43,7 +41,7 @@ export class ViewHatComponent implements OnInit {
     if (this.newReviewText.trim()) {
       let customer = this.sessionService.getItem('customer')
       this.productService.postReview(this.newReviewRating, customer.userId, 
-        this.hat.productId, this.newReviewText).subscribe(success => {
+        this.hat.productId, this.newReviewText, customer.username).subscribe(success => {
         this.newReviewText = '';
         this.showReviewForm = false;
       });
@@ -57,3 +55,4 @@ export class ViewHatComponent implements OnInit {
     this.shoppingcartService.addToCart(hat)
   }
 }
+

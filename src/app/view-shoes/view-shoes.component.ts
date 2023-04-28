@@ -28,8 +28,6 @@ export class ViewShoesComponent implements OnInit {
     // Get the productId route parameter
     const productId = this.route.snapshot.paramMap.get('productId');
 
-    console.log('product id for these sheos', productId)
-
     if(productId !== null){
     // Fetch the shirt object using the productId
     this.productService.getShoesById(parseInt(productId, 10)).subscribe(shoes => {
@@ -43,7 +41,7 @@ export class ViewShoesComponent implements OnInit {
     if (this.newReviewText.trim()) {
       let customer = this.sessionService.getItem('customer')
       this.productService.postReview(this.newReviewRating, customer.userId, 
-        this.shoes.productId, this.newReviewText).subscribe(success => {
+        this.shoes.productId, this.newReviewText, customer.username).subscribe(success => {
         this.newReviewText = '';
         this.showReviewForm = false;
       });

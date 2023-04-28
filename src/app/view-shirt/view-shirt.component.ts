@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Shirt } from '../model/shirt';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
@@ -69,7 +69,7 @@ export class ViewShirtComponent implements OnInit {
     if (this.newReviewText.trim()) {
       let customer = this.sessionService.getItem('customer')
       this.productService.postReview(this.newReviewRating, customer.userId, 
-        this.shirt.productId, this.newReviewText).subscribe(success => {
+        this.shirt.productId, this.newReviewText, customer.username).subscribe(success => {
         this.newReviewText = '';
         this.showReviewForm = false;
       });

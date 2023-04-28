@@ -24,17 +24,17 @@ export class ProductService {
     return this.http.get<Review[]>(`http://localhost:8080/productReview/getById/${id}`)
   }
 
-  postReview(rating: number, userId: number, productId: number, review: string):
+  postReview(rating: number, userId: number, productId: number, review: string, username: string):
   Observable<boolean> {
     console.log('in postreview in service')
     console.log(userId)
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post<boolean>
     ('http://localhost:8080/productReview/saveProductReview', 
-    {rating, userId, productId, review},
+    {rating, userId, productId, review, username},
     {headers: headers})
   } 
-
+  
   getShoesById(id: number): Observable<Shoe> {
     return this.http.get<Shoe>(`http://localhost:8080/shoes/getById/${id}`)
   }
