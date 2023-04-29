@@ -5,6 +5,7 @@ import { ProductService } from '../service/product.service';
 import { CartService } from '../service/cart.service';
 import { SessionService } from '../service/session.service';
 import { CustomerService } from '../service/customer.service';
+import { ProductReviewComponent } from '../review/review.component';
 
 @Component({
   selector: 'app-view-shoes',
@@ -28,8 +29,6 @@ export class ViewShoesComponent implements OnInit {
     // Get the productId route parameter
     const productId = this.route.snapshot.paramMap.get('productId');
 
-    console.log('product id for these sheos', productId)
-
     if(productId !== null){
     // Fetch the shirt object using the productId
     this.productService.getShoesById(parseInt(productId, 10)).subscribe(shoes => {
@@ -43,9 +42,10 @@ export class ViewShoesComponent implements OnInit {
     if (this.newReviewText.trim()) {
       let customer = this.sessionService.getItem('customer')
       this.productService.postReview(this.newReviewRating, customer.userId, 
-        this.shoes.productId, this.newReviewText).subscribe(success => {
+        this.shoes.productId, this.newReviewText, customer.username).subscribe(success => {
         this.newReviewText = '';
         this.showReviewForm = false;
+        ProductReviewComponent.updateReviews(this.route, this.productService)
       });
     } else {
       alert('Please write a review before submitting.');

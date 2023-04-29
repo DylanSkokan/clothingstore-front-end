@@ -1,20 +1,22 @@
 <div class="border">
+    <div *ngFor="let review of getReviews()"> 
+        <article class="media">
+            <figure class="media-left">
+                <p class="image is-64x64">
+                    <img
+                        src="https://media.istockphoto.com/id/610003972/vector/vector-businessman-black-silhouette-isolated.jpg?s=612x612&w=0&k=20&c=Iu6j0zFZBkswfq8VLVW8XmTLLxTLM63bfvI6uXdkacM=">
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>{{ review.username }}</strong> <small> gives this product a rating of: {{ review.rating }} </small>
+                        <br>
+                        {{ review.review }}
+                    </p>
 
-    <article class="media">
-        <figure class="media-left">
-        <p class="image is-64x64">
-            <img src="https://media.istockphoto.com/id/610003972/vector/vector-businessman-black-silhouette-isolated.jpg?s=612x612&w=0&k=20&c=Iu6j0zFZBkswfq8VLVW8XmTLLxTLM63bfvI6uXdkacM=">
-        </p>
-        </figure>
-        <div class="media-content">
-        <div class="content">
-            <p>
-            <strong>{{ userName }}</strong> <small> {{ review.rating }} </small>
-            <br>
-            {{ review.review }}
-            </p>
-        </div>
-        </div>
-    </article>
-
+                </div>
+            </div>
+        </article>
+    </div>
 </div>

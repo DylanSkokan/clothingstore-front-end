@@ -69,11 +69,8 @@
       <button type="submit">Submit</button>
     </form>
   </div>
-
-  <div *ngFor = "let review of productReviews; let i = index">
-    <app-product-review [review]="productReviews[i]"></app-product-review>
-  </div>
   
+  <app-product-review></app-product-review>
 
 </div>
 
