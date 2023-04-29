@@ -5,6 +5,7 @@ import { ProductService } from '../service/product.service';
 import { CartService } from '../service/cart.service';
 import { CustomerService } from '../service/customer.service';
 import { SessionService } from '../service/session.service';
+import { ProductReviewComponent } from '../review/review.component';
 
 @Component({
   selector: 'app-view-hat',
@@ -44,6 +45,7 @@ export class ViewHatComponent implements OnInit {
         this.hat.productId, this.newReviewText, customer.username).subscribe(success => {
         this.newReviewText = '';
         this.showReviewForm = false;
+        ProductReviewComponent.updateReviews(this.route, this.productService)
       });
     } else {
       alert('Please write a review before submitting.');

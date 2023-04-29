@@ -7,6 +7,7 @@ import { SessionService } from '../service/session.service';
 import { CustomerService } from '../service/customer.service';
 import { Review } from '../model/review';
 import { Observable } from 'rxjs/internal/Observable';
+import { ProductReviewComponent } from '../review/review.component';
 
 @Component({
   selector: 'app-view-pants',
@@ -47,6 +48,7 @@ export class ViewPantsComponent implements OnInit {
         this.pants.productId, this.newReviewText, customer.username).subscribe(success => {
         this.newReviewText = '';
         this.showReviewForm = false;
+        ProductReviewComponent.updateReviews(this.route, this.productService)
       });
     } else {
       alert('Please write a review before submitting.');

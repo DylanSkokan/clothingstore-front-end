@@ -12,7 +12,7 @@ import { SessionService } from '../service/session.service';
   styleUrls: ['./review.component.css']
 })
 export class ProductReviewComponent implements OnInit {
-  reviews: Review[]
+  static reviews: Review[];
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
@@ -20,17 +20,21 @@ export class ProductReviewComponent implements OnInit {
     private sessionService: SessionService) { 
     }
 
-  ngOnInit(): void {
-    this.updateReviews()
+  getReviews(): Review[] {
+    return ProductReviewComponent.reviews.reverse();
   }
 
-  updateReviews(){
-    const productId = this.route.snapshot.paramMap.get('productId');
+  ngOnInit(): void {
+    ProductReviewComponent.updateReviews(this.route, this.productService);
+  }
 
-    console.log('get review of this product: ', productId)
+  static updateReviews(route: ActivatedRoute, productService: ProductService){
+    const productId = route.snapshot.paramMap.get('productId');
+
+    console.log('IN UPDATE REVIEWS!!!: ', productId)
     
     if(productId !== null && productId !== undefined){
-      this.productService.getReviewsByProdId(parseInt(productId, 10)).subscribe(productReviews => {
+      productService.getReviewsByProdId(parseInt(productId, 10)).subscribe(productReviews => {
         this.reviews = productReviews;
       });
     }
