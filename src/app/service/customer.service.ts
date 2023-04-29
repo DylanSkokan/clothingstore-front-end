@@ -22,6 +22,10 @@ export class CustomerService {
     return this.http.get<Customer[]>('http://localhost:8080/customer/all');
   }
 
+  public getCustById(id: string): Observable<Customer> {
+    return this.http.get<Customer>(`http://localhost:8080/customer/${id}`)
+  }
+
   public createCustomer(username: string, password: string, firstName: string, lastName: string, email: string) {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     const createAccountSuccess = this.http.post<boolean>
