@@ -27,6 +27,7 @@ onSubmit(form: NgForm){
   });
 }
 onButtonClick(){
+  console.log("Hi")
   console.log(typeof this.cartService.getCart())
   console.log(this.sessionService.getItem('cart'));
   this.orderService.createOrder(this.sessionService.getItem('cart')).subscribe(response => {
