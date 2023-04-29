@@ -39,13 +39,13 @@ export class CheckoutPageComponent implements OnInit{
     .subscribe(() => {
       this.totalItems = this.cartService.getCartSize();
     });
+    
   }
+
+
   onButtonClick(){
     console.log(this.sessionService.getItem('cart'));
     this.orderService.createOrder(this.sessionService.getItem('cart')).subscribe(response => {
    });
-
   }
 }
-
-
