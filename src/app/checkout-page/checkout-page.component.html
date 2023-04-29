@@ -1,162 +1,106 @@
-<!-- FIX ME: Add proper CSS or use bulma framework, this is just a placeholder for now -->
-
-<!-- <body>
-	<h1>Checkout</h1>
-	<form action="#" method="post">
-		<h2>Billing Information</h2>
-		<label for="cardholder-name">Cardholder Name:</label>
-		<input type="text" id="cardholder-name" name="cardholder-name" required><br><br>
-
-		<label for="card-number">Card Number:</label>
-		<input type="text" id="card-number" name="card-number" required><br><br>
-
-		<label for="expiration-date">Expiration Date:</label>
-		<input type="text" id="expiration-date" name="expiration-date" required><br><br>
-
-		<label for="security-code">Security Code:</label>
-		<input type="text" id="security-code" name="security-code" required><br><br>
-
-		<label for="billing-address">Billing Address:</label>
-		<input type="text" id="billing-address" name="billing-address" required><br><br>
-
-		<h2>Shipping Information</h2>
-		<label for="shipping-address">Shipping Address:</label>
-		<input type="text" id="shipping-address" name="shipping-address" required><br><br>
-
-		<input type="submit" value="Submit">
-	</form>
-</body> -->
-
 <section class="hero is-primary is-bold">
 	<div class="hero-body">
-	  <div class="container">
-		<p class="title">
-		  Check Out
-		</p>
-	  </div>
-	</div>
-  </section>
-
-  <section class="section">
-	<div class="class container">
-		<div class="columns">
-			<div class="column">
-				<form (ngSubmit)="onSubmit(orderInformationForm)" #orderInformationForm="ngForm">
-					<label style="font-size: x-large" class="label">Payment Information</label>
-
-					<div class="dropdown is-hoverable">
-						<div class="dropdown-trigger">
-						  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-							<span>Payment Type</span>
-							<span class="icon is-small">
-							  <i class="fas fa-angle-down" aria-hidden="true"></i>
-							</span>
-						  </button>
-						</div>
-						<div class="dropdown-menu" id="dropdown-menu4" role="menu">
-						  <div class="dropdown-content">
-							<div class="dropdown-item">
-							  <p>Visa</p>
-							</div>
-						  </div>
-						</div>
-					  </div>
-
-					<div class="field">
-						<label class="label">Cardholder Name</label>
-						<input type="text" 
-							id="cardholder-name" 
-							name="cardholder-name" 
-							placeholder="Cardholder Name"
-							class="input"
-							required>
-					</div>
-					<div class="field">
-						<label class="label">Payment Type</label>
-						<input type="text" 
-							id="cardholder-name" 
-							name="cardholder-name" 
-							placeholder="Cardholder Name"
-							class="input"
-							required>
-					</div>
-
-					<div class="field">
-						<label class="label">Credit Card Number</label>
-						<input type="text" 
-							id="card-number" 
-							name="card-number" 
-							placeholder="Credit Card Number"
-							class="input"
-							required>
-					</div>
-					<div class="field">
-						<label class="label">Expiration Date</label>
-						<input type="text" 
-							id="expiration-date" 
-							name="expiration-date" 
-							placeholder="Expiration Date"
-							class="input"
-							required>
-					</div>
-					<div class="field">
-						<label class="label">Security Code</label>
-						<input type="text" 
-							id="security-code" 
-							name="security-code" 
-							placeholder="Security Code"
-							class="input"
-							required>
-					</div>
-				</form>
-			</div>
-			<div class="column">
-				<form>
-					<label style="font-size: x-large" class="label">Shipping Information</label>
-					<div class="field">
-						<label class="label">Street</label>
-						<input type="text" 
-							id="street" 
-							name="street" 
-							placeholder="Street"
-							class="input"
-							required>
-					</div>
-					<div class="field">
-						<label class="label">City</label>
-						<input type="text" 
-							id="city" 
-							name="city" 
-							placeholder="City"
-							class="input"
-							required>
-					</div>
-					<div class="field">
-						<label class="label">State</label>
-						<input type="text" 
-							id="state" 
-							name="state" 
-							placeholder="State"
-							class="input"
-							required>
-					</div>
-					<div class="field">
-						<label class="label">Zip Code</label>
-						<input type="text" 
-							id="zip-code" 
-							name="zip-code" 
-							placeholder="Zip Code"
-							class="input"
-							required>
-					</div>
-
-				</form>
-			</div>
-
+		<div class="container">
+			<p class="title">
+				Check Out
+			</p>
 		</div>
-		<button (click)="onButtonClick()" style="float: right;" class="button is-large is-warning"> 
-			Place Order
-		</button>
 	</div>
-	
-  </section> 
+</section>
+
+<section>
+	<div class="container">
+		<div class="columns">
+			<div class="column is-three-fourths">
+				<form>
+					<div class="row">
+						<div class="column is-half">
+							<label style="font-size: x-large" class="label">Billing Information</label>
+
+							<label class="label" for="fname"><i class="fa fa-user"></i> Full Name</label>
+							<input type="text" id="fname" name="firstname" placeholder="Name">
+
+							<!--<label for="email"><i class="fa fa-envelope"></i> Email</label>
+					  <input type="text" id="email" name="email" placeholder="john@example.com"> -->
+							<label class="label" for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+							<input type="text" id="adr" name="address" placeholder="123 4th Street">
+
+							<label class="label" for="city"><i class="fa fa-city"></i> City</label>
+							<input type="text" id="city" name="city" placeholder="City">
+
+							<!-- <div class="row">
+						<div class="column is-half">
+						  <label class="label" for="state">State</label>
+						  <input type="text" id="state" name="state" placeholder="NY">
+						</div>
+						<div class="column is-half">
+						  <label class="label" for="zip">Zip</label>
+						  <input type="text" id="zip" name="zip" placeholder="10001">
+						</div>
+					  </div> -->
+
+							<label class="label" for="state">State</label>
+							<input type="text" id="state" name="state" placeholder="State">
+
+							<label class="label" for="zip">Zip</label>
+							<input type="text" id="zip" name="zip" placeholder="12345">
+
+						</div>
+
+						<div class="column is-half">
+							<label style="font-size: x-large" class="label">Payment</label>
+							<label class="label">Accepted Cards</label>
+							<div class="icon-container">
+								<i class="fa fa-cc-visa" style="color:navy; padding: 7px"></i>
+								<i class="fa fa-cc-amex" style="color:blue; padding: 7px"></i>
+								<i class="fa fa-cc-mastercard" style="color:red; padding: 7px"></i>
+								<i class="fa fa-cc-discover" style="color:orange; padding: 7px"></i>
+							</div>
+
+							<label class="label" for="cname">Name on Card</label>
+							<input type="text" id="cname" name="cardname" placeholder="Name">
+							<label class="label" for="ccnum">Credit card number</label>
+							<input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+							<label class="label" for="expmonth">Exp Month</label>
+							<input type="text" id="expmonth" name="expmonth" placeholder="Month">
+
+							<div class="row">
+								<div class="col-50">
+									<label class="label" for="expyear">Exp Year</label>
+									<input type="text" id="expyear" name="expyear" placeholder="2023">
+								</div>
+								<div class="col-50">
+									<label class="label" for="cvv">CVV</label>
+									<input type="text" id="cvv" name="cvv" placeholder="123">
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!--<label>
+						<input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+					</label> -->
+
+				</form>
+			</div>
+			<div class="column is-one-quarter">
+				<div class="container">
+					<div class="card">
+						<label class="label"><i class="fa fa-shopping-cart">&nbsp;&nbsp;</i>Cart</label>
+						<div *ngFor="let item of cart.products; let i = index">
+							<p><img style="width: 120px;" src="{{item.imageSource}}"></p>
+							<p>{{item.description}}</p>
+							<p>{{item.quantity * item.price | currency}}</p>
+						</div>&nbsp;&nbsp;
+						<p><strong>Grand Total: {{cart.totalCost | currency}}</strong></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<button (click)="onButtonClick()" routerLink='/'class="button is-large is-warning">
+				Place Order
+			</button>
+		</div>
+	</div>
+</section>

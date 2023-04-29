@@ -49,6 +49,7 @@ export class ViewPantsComponent implements OnInit {
         this.newReviewText = '';
         this.showReviewForm = false;
         ProductReviewComponent.updateReviews(this.route, this.productService)
+
       });
     } else {
       alert('Please write a review before submitting.');
