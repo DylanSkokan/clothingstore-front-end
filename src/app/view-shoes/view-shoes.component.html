@@ -1,17 +1,15 @@
-
 <div class="background">
-  
+
   <div class="row" *ngIf="shoes">
     <!-- This will be our image on the left column -->
     <div class="column">
       <div class="image-frame">
-        
+
         <!-- FIX ME: image should render with appropriate product -->
         <img data-image="black" align="right" src="{{shoes.imageSource}}" alt="">
-        
+
       </div>
     </div>
-    
 
     <!-- This will be our form to get sizing and display info on product on the right column -->
     <div class="column">
@@ -83,5 +81,3 @@
   <p>Size: {{ shirt.size }}</p>
   <button (click)="addToCart(shirt)">Add to Cart</button>
 </div> -->
-
-<title>Shoes: {{ shoes.brand }}</title>

@@ -28,7 +28,6 @@ import { ViewShoesComponent } from './view-shoes/view-shoes.component';
 import { ViewHatComponent } from './view-hat/view-hat.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +52,7 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
     ViewPantsComponent,
     ViewShoesComponent,
     ViewHatComponent,
-    CheckoutPageComponent,
-    OrderConfirmationComponent
+    CheckoutPageComponent
 
   ],
   imports: [
