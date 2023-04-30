@@ -19,6 +19,8 @@ import { ViewPantsComponent } from './view-pants/view-pants.component';
 import { ViewShoesComponent } from './view-shoes/view-shoes.component';
 import { ViewHatComponent } from './view-hat/view-hat.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { Order } from './model/order';
 
 
 const routes: Routes = [  
@@ -40,7 +42,9 @@ const routes: Routes = [
   { path: 'shopping-cart', component: ShoppingCartComponent},
   { path: 'product-item', component: ProductItemComponent},
   { path: 'userAccount', component: UserAccountComponent},
-  { path: 'checkoutPage', component: CheckoutPageComponent}
+  { path: 'checkoutPage', component: CheckoutPageComponent},
+
+  {path: 'orderConfirmation', component: OrderConfirmationComponent}
 
 ];
 
