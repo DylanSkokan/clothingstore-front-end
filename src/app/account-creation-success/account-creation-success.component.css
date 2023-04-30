@@ -1,130 +1,36 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #9bb5f6;
-  }
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px #ccc;
+  opacity: 0.95;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
 
-  .headline {
-    font-family: Arial, Helvetica, sans-serif;
-  }
+h1 {
+  text-align: center;
+  font-size: 40px;
+  color: #333;
+}
 
-  .congrats {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .container {
-    font-family: Arial, Helvetica, sans-serif;
-    max-width: 600px;
-    margin: 50px auto 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  h1 {
-    color: #333;
-    margin-top: 0;
-  }
-  
-  p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #666;
-  }
-  
-  .button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #0062cc;
-  }
+h2 {
+  text-align: center;
+  color: #333;
+}
 
-  
-  h1 {
-    font-family: garamond;
-    text-align: center;
-    font-size: 2em;
-  }
-  
-  h3 {
-    font-family: garamond;
-    text-align: center;
-    font-size: 2em;
-  }
-  
-  img {
-    height: 500px;
-    width: 500px;
-  }
-  
-  .Isaiah {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 1;
-    grid-row-end: 1;
-  }
-  
-  .Tom {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row: 1;
-    grid-row-end: 1;
-  }
-  
-  .Dillion {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row: 2;
-    grid-row-end: 2;
-  }
-  
-  .Justin {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row: 2;
-    grid-row-end: 2;
-  }
-  
-  .gridContainer {
-    display: grid;
-    column-gap: 50px;
-    row-gap: 50px;
-  }
-  
-  
-  .navBar {
-    background-color: #333;
-    overflow: hidden;
-  }
-  
-  .navBar a {
-    float: left;
-    color: orange;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .navBar a:hover {
-    background-color: #111;
-  }
-  
-  .active {
-    background-color: green;
-  }
-  
-  
-  .topNav-right {
-    float: right;
-  }
+p {
+  color: #333;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.hero {
+  background-image: url("https://c1.wallpaperflare.com/preview/451/651/674/man-male-asian-market.jpg") !important;
+  background-size: cover;
+  background-position: center center;
+}

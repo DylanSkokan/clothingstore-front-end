@@ -1,14 +1,13 @@
+<title>Hats</title>
+
 <section class="hero is-dark is-bold is-fullheight">
   <div class="hero-body">
     <div class="container has-text-centered">
-
-      <!-- placeholder shirts -->
       <div class="grid-container">
         <div *ngFor="let hat of hats;">
           <a [routerLink]="['view-hat', hat.productId]">
-            <!-- FIX ME: Change it so the proper shirt renders with the image -->
-            <img src="{{hat.imageSource}}">
-            <p> {{ hat.brand }}</p>
+            <img src="{{hat.imageSource}}" class="hat">
+            <p class="hatText"> {{ hat.brand }}</p>
           </a>
         </div>
       </div>

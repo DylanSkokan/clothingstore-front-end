@@ -4,22 +4,26 @@
 }
 
 .hero {
-  background-image: url('/assets/img/background4.png') !important;
+  background-image: url('/assets/img/background1.png') !important;
   background-size: cover;
   background-position: center center;
 }
 
 a {
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid #979797;
   padding: 10px 20px;
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 a:hover {
-  background-color: #f5f5f5;
+  background-color: #b49e9e;
 }
 
 .grid-container {
@@ -31,4 +35,22 @@ a:hover {
 img {
   max-width: 100%;
   height: auto;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.hat {
+  width: 300px;
+  height: 200px;
+  transition: transform 0.5s ease;
+}
+
+.hat:hover {
+  transform: scale(1.05);
+}
+
+.hatText {
+  color: rgb(252, 231, 71);
 }
