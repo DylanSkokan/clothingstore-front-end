@@ -5,9 +5,8 @@
       <div class="grid-container">
         <div *ngFor="let shirt of shirts;">
           <a [routerLink]="['view-shirt', shirt.productId]">
-            <!-- FIX ME: Change it so the proper shirt renders with the image -->
-            <img src="{{shirt.imageSource}}">
-            <p> {{ shirt.brand }}</p>
+            <img src="{{shirt.imageSource}}" class="shirts">
+            <p class="shirtText"> {{ shirt.brand }}</p>
           </a>
         </div>
       </div>
@@ -15,3 +14,5 @@
     </div>
   </div>
 </section>
+
+<title>Shirts</title>
