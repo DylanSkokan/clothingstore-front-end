@@ -5,6 +5,7 @@ import { Order } from '../model/order';
 import { SessionService } from './session.service';
 import { ShoppingcartService } from './shoppingcart.service';
 import { Product } from '../model/product';
+import { Checkout } from '../model/checkout';
 
 @Injectable({
   providedIn: 'root'
@@ -16,21 +17,21 @@ export class OrderService {
 
   }
 
-  public createOrderWithCustomer(username: string, orderItems: Product[]) {
+  public createOrderWithCustomer(username: string, checkoutInfo: Checkout, orderItems: Product[]) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const orderCreationSuccess = this.http.post<number>
       ('http://localhost:8080/order/createOrder',
-        { orderItems, username },
+        { orderItems, username, checkoutInfo },
         { headers: headers }
       )
     return orderCreationSuccess
   }
 
-  public createOrder(orderItems: Product[]) {
+  public createOrder(orderItems: Product[], checkoutInfo: Checkout) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const orderCreationSuccess = this.http.post<number>
       ('http://localhost:8080/order/createOrder',
-        { orderItems },
+        { orderItems, checkoutInfo },
         { headers: headers }
       )
     return orderCreationSuccess
