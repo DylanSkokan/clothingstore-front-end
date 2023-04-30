@@ -162,9 +162,9 @@
 						<div class="card">
 							<label class="label"><i class="fa fa-shopping-cart">&nbsp;&nbsp;</i>Cart</label>
 							<div *ngFor="let item of cart.products; let i = index">
-								<p><img style="width: 120px;" src="{{item.imageSource}}"></p>
-								<p>{{item.description}}</p>
-								<p>{{item.quantity * item.price | currency}}</p>
+								<p class="center"><img style="width: 120px; padding: 5px; " src="{{item.imageSource}}"></p>
+								<p class="center">{{item.description}}</p>
+								<p class="center">{{item.quantity * item.price | currency}}</p>
 							</div>&nbsp;&nbsp;
 							<p><strong>Grand Total: {{cart.totalCost | currency}}</strong></p>
 						</div>
@@ -173,7 +173,6 @@
 			</div>
 			<div>
 				<button type="submit" [disabled]="!checkoutForm.form.valid" 
-				routerLink="/orderConfirmation"
 				class="btn btn-info">Submit</button>
 			</div>
 		</div>

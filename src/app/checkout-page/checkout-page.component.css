@@ -14,4 +14,13 @@ form {
     padding: 7px 0; */
     font-size: 24px;
   }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
+  .card{
+    padding: 5px;
+  }

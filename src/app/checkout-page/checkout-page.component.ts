@@ -52,6 +52,8 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('SUBBBMIIIIT')
+
     console.log(this.sessionService.getItem('cart'));
     if (this.sessionService.getItem('customer') == null) {
       this.orderService.createOrder(this.sessionService.getItem('cart'), this.checkoutInfo).subscribe(response => {
@@ -63,6 +65,6 @@ export class CheckoutPageComponent implements OnInit {
       });
     }
     this.cartService.removeAllItems();
-    this.router.navigate(['/']);
+    this.router.navigate(['/orderConfirmation']);
   }
 }
