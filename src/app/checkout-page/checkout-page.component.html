@@ -1,3 +1,5 @@
+<title>Checkout</title>
+
 <section class="hero is-primary is-bold">
 	<div class="hero-body">
 		<div class="container">
@@ -123,6 +125,7 @@
 			</div>
 			<div>
 				<button type="submit" [disabled]="!checkoutForm.form.valid" 
+				routerLink="/orderConfirmation"
 				class="btn btn-info">Submit</button>
 			</div>
 		</div>
