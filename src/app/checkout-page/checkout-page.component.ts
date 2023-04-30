@@ -46,9 +46,22 @@ export class CheckoutPageComponent implements OnInit{
 
   onButtonClick(){
     console.log(this.sessionService.getItem('cart'));
-    console.log(this.customerService.getCustomer);
-    this.orderService.createOrder(this.sessionService.getItem('customer'),this.sessionService.getItem('cart')).subscribe(response => {
-   });
+    if (this.sessionService.getItem('customer') == null){
+      console.log('IN NULL CUSTOMER')
+      this.orderService.createOrder(this.sessionService.getItem('cart')).subscribe(response => {
+      });
+    } 
+    else {
+      console.log('IN EXISTS CUSTOMER')
+      console.log(this.sessionService.getItem('customer').username);
+      this.orderService.createOrderWithCustomer(this.sessionService.getItem('customer').username, this.sessionService.getItem('cart')).subscribe(response => {
+      });
+
+    }
+
+    
+
+
    this.cartService.removeAllItems();
   }
 }

@@ -11,21 +11,29 @@ import { Product } from '../model/product';
 })
 export class OrderService {
   private tempOrder: Product[];
-  constructor(private http:HttpClient, sessionService: SessionService, shoppingCartService: ShoppingcartService) {
-  this.tempOrder = shoppingCartService.getCart();
+  constructor(private http: HttpClient, sessionService: SessionService, shoppingCartService: ShoppingcartService) {
+    this.tempOrder = shoppingCartService.getCart();
 
-   }
+  }
 
+  public createOrderWithCustomer(username: string, orderItems: Product[]) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const orderCreationSuccess = this.http.post<number>
+      ('http://localhost:8080/order/createOrder',
+        { orderItems, username },
+        { headers: headers }
+      )
+    return orderCreationSuccess
+  }
 
-public createOrder(customerID: string, orderItems: Product[] ){
-const headers = new HttpHeaders({'Content-Type': 'application/json'});
-const orderCreationSuccess = this.http.post<number>
-('http://localhost:8080/order/createOrder',
-{orderItems, customerID}, 
-{headers: headers}
-)
-return orderCreationSuccess
+  public createOrder(orderItems: Product[]) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const orderCreationSuccess = this.http.post<number>
+      ('http://localhost:8080/order/createOrder',
+        { orderItems },
+        { headers: headers }
+      )
+    return orderCreationSuccess
+  }
 
-}
-  
 }
