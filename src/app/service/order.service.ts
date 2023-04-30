@@ -17,11 +17,11 @@ export class OrderService {
    }
 
 
-public createOrder( orderItems: Product[] ){
+public createOrder(customerID: string, orderItems: Product[] ){
 const headers = new HttpHeaders({'Content-Type': 'application/json'});
 const orderCreationSuccess = this.http.post<number>
 ('http://localhost:8080/order/createOrder',
-{orderItems}, 
+{orderItems, customerID}, 
 {headers: headers}
 )
 return orderCreationSuccess

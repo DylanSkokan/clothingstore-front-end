@@ -7,6 +7,7 @@ import { AbstractControl, FormControl, FormGroup, NgForm, ValidationErrors, Vali
 import { OrderService } from '../service/order.service';
 import { ShoppingcartService } from '../service/shoppingcart.service';
 import { SessionService } from '../service/session.service';
+import { CustomerService } from '../service/customer.service';
 
 interface Cart {
   products: Product[];
@@ -28,7 +29,7 @@ export class CheckoutPageComponent implements OnInit{
   order: Order;
   response : string | null;
 
-  constructor(private cartService : CartService, private orderService: OrderService, private sessionService: SessionService){
+  constructor(private cartService : CartService, private orderService: OrderService, private sessionService: SessionService, private customerService: CustomerService){
     this.order = new Order();
   }
 
@@ -45,7 +46,9 @@ export class CheckoutPageComponent implements OnInit{
 
   onButtonClick(){
     console.log(this.sessionService.getItem('cart'));
-    this.orderService.createOrder(this.sessionService.getItem('cart')).subscribe(response => {
+    console.log(this.customerService.getCustomer);
+    this.orderService.createOrder(this.sessionService.getItem('customer'),this.sessionService.getItem('cart')).subscribe(response => {
    });
+   this.cartService.removeAllItems();
   }
 }
