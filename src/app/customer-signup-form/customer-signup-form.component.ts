@@ -15,6 +15,7 @@ export class CustomerSignupFormComponent {
   customer: Customer;
   response : string | null;
   usernameExists: boolean = false;
+  invalidPassword: boolean = false;
 
   constructor(
     private route: ActivatedRoute, 
@@ -23,23 +24,22 @@ export class CustomerSignupFormComponent {
     this.customer = new Customer();
   }
 
-  passwordMatchValidator(form: NgForm) {
-    if (form.controls['password'].value !== form.controls['rePassword'].value) {
-      form.controls['rePassword'].setErrors({ passwordMismatch: true });
-    } else {
-      form.controls['rePassword'].setErrors(null);
-    }
-  }
   //username, password, firstname, lastname, email
   onSubmit(form: NgForm) {
-    this.customerService.createCustomer(this.customer.username, this.customer.password,
-      this.customer.firstName, this.customer.lastName, this.customer.email).subscribe(response => {
-      if (response == true){
-        this.usernameExists = false;
-        this.router.navigate(['customer/accountCreationSuccess']);
-      } else {
-        this.usernameExists = true;
-      }
-    });
+    if (form.controls['password'].value !== form.controls['rePassword'].value) {
+      this.invalidPassword = true;
+      form.controls['password'].reset();
+      form.controls['rePassword'].reset();
+    } else {
+      this.customerService.createCustomer(this.customer.username, this.customer.password,
+        this.customer.firstName, this.customer.lastName, this.customer.email).subscribe(response => {
+        if (response == true){
+          this.usernameExists = false;
+          this.router.navigate(['customer/accountCreationSuccess']);
+        } else {
+          this.usernameExists = true;
+        }
+      });
+    }
   }
 }

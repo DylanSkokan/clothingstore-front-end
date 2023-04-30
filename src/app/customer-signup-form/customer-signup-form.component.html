@@ -87,11 +87,14 @@
   <div class="container">
     <div class="columns">
       <div class="column">
-    <form (ngSubmit)="passwordMatchValidator(customerSignupForm); onSubmit(customerSignupForm)" #customerSignupForm="ngForm" novalidate>
+    <form (ngSubmit)=" onSubmit(customerSignupForm)" #customerSignupForm="ngForm" novalidate>
       
       <!-- If username is already in DB -->
       <div class="error-message" *ngIf="usernameExists">
         Username already exists.
+      </div>
+      <div class="error-message" *ngIf="invalidPassword">
+        Passwords do not match.
       </div>
       <!-- Username Field-->
       <div class="field">

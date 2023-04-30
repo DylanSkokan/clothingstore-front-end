@@ -7,3 +7,11 @@ form {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
+
+  
+  .icon-container {
+   /* margin-bottom: 20px;
+    padding: 7px 0; */
+    font-size: 24px;
+  }
+  
