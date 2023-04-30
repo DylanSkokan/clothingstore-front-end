@@ -5,27 +5,36 @@ import { Order } from '../model/order';
 import { SessionService } from './session.service';
 import { ShoppingcartService } from './shoppingcart.service';
 import { Product } from '../model/product';
+import { Checkout } from '../model/checkout';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
   private tempOrder: Product[];
-  constructor(private http:HttpClient, sessionService: SessionService, shoppingCartService: ShoppingcartService) {
-  this.tempOrder = shoppingCartService.getCart();
+  constructor(private http: HttpClient, sessionService: SessionService, shoppingCartService: ShoppingcartService) {
+    this.tempOrder = shoppingCartService.getCart();
 
-   }
+  }
 
+  public createOrderWithCustomer(username: string, checkoutInfo: Checkout, orderItems: Product[]) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const orderCreationSuccess = this.http.post<number>
+      ('http://localhost:8080/order/createOrder',
+        { orderItems, username, checkoutInfo },
+        { headers: headers }
+      )
+    return orderCreationSuccess
+  }
 
-public createOrder(customerID: string, orderItems: Product[] ){
-const headers = new HttpHeaders({'Content-Type': 'application/json'});
-const orderCreationSuccess = this.http.post<number>
-('http://localhost:8080/order/createOrder',
-{orderItems, customerID}, 
-{headers: headers}
-)
-return orderCreationSuccess
+  public createOrder(orderItems: Product[], checkoutInfo: Checkout) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const orderCreationSuccess = this.http.post<number>
+      ('http://localhost:8080/order/createOrder',
+        { orderItems, checkoutInfo },
+        { headers: headers }
+      )
+    return orderCreationSuccess
+  }
 
-}
-  
 }
