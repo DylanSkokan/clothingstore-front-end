@@ -1,5 +1,5 @@
 <div class="border">
-    <div *ngFor="let review of getReviews()"> 
+    <div *ngFor="let review of getReviews()">
         <article class="media">
             <figure class="media-left">
                 <p class="image is-64x64">
@@ -10,7 +10,8 @@
             <div class="media-content">
                 <div class="content">
                     <p>
-                        <strong>{{ review.username }}</strong> <small> gives this product a rating of: {{ review.rating }} </small>
+                        <strong>{{ review.username }}</strong> <small> gives this product a rating of: {{ review.rating
+                            }} </small>
                         <br>
                         {{ review.review }}
                     </p>

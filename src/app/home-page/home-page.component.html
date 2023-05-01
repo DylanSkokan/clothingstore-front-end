@@ -1,35 +1,37 @@
 <title>ICS-499 Capstone Project</title>
- <section class="hero is-dark is-bold is-medium">
+<section class="hero is-dark is-bold is-medium">
   <div class="hero-body">
-    <div style="border: 20px; border-color: rgb(23, 23, 24); background-color: black; opacity: 100%;width: fit-content;" class = "container has-text-centered box">
+    <div style="border: 20px; border-color: rgb(23, 23, 24); background-color: black; opacity: 100%;width: fit-content;"
+      class="container has-text-centered box">
       <p class="title">
         ICS 499 Capstone Project
       </p>
-   </div>
+    </div>
   </div>
 </section>
 
-
 <section style="background-color: darkslategray;">
-<div class="container">
-  <div class="row">
-     <ng-container *ngFor="let item of productList">
-      <div class="card col-md-3">
+  <div class="container">
+    <div class="row">
+      <ng-container *ngFor="let item of productList">
+        <div class="card col-md-3">
           <div class="center"><img src="{{item.imageSource}}" alt=""></div>
-          <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.brand }}</h5>
-          <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.description }}</p>
+          <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{ item.brand }}
+          </h5>
+          <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{
+            item.description }}</p>
           <p><strong>Price: </strong>${{item.price}}</p>
-          
+
           <div class="columns">
             <div class="column">
-            <button class="btn btn-primary" (click)="seeDetails(item)">See Details</button>
+              <button class="btn btn-primary" (click)="seeDetails(item)">See Details</button>
+            </div>
+            <div class="column">
+              <button class="btn btn-primary" (click)="addToCart(item)">Add to Cart</button>
+            </div>
           </div>
-          <div class="column">
-            <button class="btn btn-primary" (click)="addToCart(item)">Add to Cart</button>
-          </div>
-          </div>
-      </div>
-     </ng-container>
+        </div>
+      </ng-container>
+    </div>
   </div>
-</div>
 </section>

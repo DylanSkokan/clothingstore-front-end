@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+
 import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customer.service';
 import { SessionService } from '../service/session.service';
@@ -14,11 +15,9 @@ export class CustomerLoginFormComponent {
   validCredentials: boolean = true;
 
   constructor(
-    private route: ActivatedRoute, 
-      private router: Router, 
-        private customerService: CustomerService,
-        private sessionService: SessionService)
-        {
+    private router: Router,
+    private customerService: CustomerService,
+    private sessionService: SessionService) {
     this.customer = new Customer();
   }
 

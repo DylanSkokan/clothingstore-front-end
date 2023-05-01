@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
-import { SessionService } from './session.service';
-import { Product } from '../model/product';
 import { Subject } from 'rxjs';
+
+import { Injectable } from '@angular/core';
+
+import { Product } from '../model/product';
+import { SessionService } from './session.service';
 
 interface Cart {
   products: Product[];
@@ -16,28 +18,14 @@ export class CartService {
   private cart: Cart = { products: [], totalCost: 0 };
   private cartUpdated = new Subject<void>();
 
-  //public cartItemList: any = []
-  //public productList = new BehaviorSubject<any>([]);
-
-  constructor(private sessionService: SessionService) { 
+  constructor(private sessionService: SessionService) {
     //set the cart to empty upon session creation
     //if cart is null
     let cart = this.sessionService.getItem('cart')
-    if(cart == null){
+    if (cart == null) {
       this.sessionService.setItem('cart', this.cart)
     }
   }
-
-  /*
-  getProducts(){
-    return this.productList;
-  }
-
-  setProduct(product : Product){
-    this.cart.push(...product);
-    this.productList.next(product);
-  }
-  */
 
   setCart(cart: Cart) {
     this.cart = cart
@@ -60,11 +48,11 @@ export class CartService {
     this.cartUpdated.next();
   }
 
-  getCart(){
+  getCart() {
     return this.sessionService.getItem('cart');
   }
 
-  getCartSize(){
+  getCartSize() {
     this.cart = this.sessionService.getItem('cart')
 
     let totalItems = 0
@@ -75,7 +63,7 @@ export class CartService {
     return totalItems;
   }
 
-  addToCart(product : Product){
+  addToCart(product: Product) {
     //get the most updated cart
     this.cart = this.sessionService.getItem('cart')
 
@@ -92,34 +80,20 @@ export class CartService {
 
     //else, add it to the cart normally
     if (!productAlreadyInCart) {
-      console.log('Adding new item to cart')
       product.quantity = 1
       this.cart.products.push(product);
-      console.log(this.cart.products)
     }
 
-    console.log(this.cart.products)
     //each time something is added to the cart, update the totalCost
     this.cart.totalCost = this.getTotalPrice();
-    console.log(this.cart.totalCost)
-    console.log(this.cart.products)
 
     this.updateCart()
-
-    /*
-    this.cartItemList.push(product)
-    this.productList.next(this.cartItemList);
-    */
-    console.log('End of add to cart, cart from local is now:')
-    console.log(this.cart)
-    console.log('End of add to cart, cart from session is now:')
-    console.log(this.sessionService.getItem('cart'))
   }
 
-  setProductQuantity(product: Product, newQuantity: number){
+  setProductQuantity(product: Product, newQuantity: number) {
     //get the most updated cart
     this.cart = this.sessionService.getItem('cart')
-    
+
     for (let cartItem of this.cart.products) {
       if (cartItem.productId === product.productId) {
         cartItem.quantity = newQuantity;
@@ -132,37 +106,13 @@ export class CartService {
 
   getTotalPrice() {
     let grandTotal = 0;
-    this.cart.products.map((product:Product)=>{
-        grandTotal += product.price * product.quantity
+    this.cart.products.map((product: Product) => {
+      grandTotal += product.price * product.quantity
     })
     return grandTotal;
   }
 
-  /*
-  getTotalPrice() : number {
-    let grandTotal = 0;
-    this.cartItemList.map((a:any)=>{
-        grandTotal += a.total
-    })
-    return grandTotal;
-  }
-  removeCartItem(product : any){
-    this.cartItemList.map((a:any, index:any)=>{
-      if(product.id === a.id) {
-        this.cartItemList.splice(index, 1);
-      }
-    })
-    this.productList.next(this.cartItemList);
-  }
-  removeAllItems(){
-    this.cartItemList = [];
-    this.productList.next(this.cartItemList);
-  }
-  */
-
-  removeCartItem(product : Product){
-    console.log('trying to remove the')
-    console.log(product)
+  removeCartItem(product: Product) {
 
     //get the most updated cart
     this.cart = this.sessionService.getItem('cart')
@@ -175,20 +125,17 @@ export class CartService {
         break;
       }
     }
-    
-    console.log('after removal cart has')
-    console.log(this.cart.products)
 
     this.updateCart()
   }
 
-  removeAllItems(){
+  removeAllItems() {
     //get the most updated cart
     this.cart = this.sessionService.getItem('cart')
 
     this.cart.products = [];
     this.cart.totalCost = 0;
-   
+
     this.updateCart()
   }
 }

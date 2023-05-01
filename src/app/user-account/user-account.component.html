@@ -20,8 +20,8 @@
 
           <div class="field">
             <label class="label">Password</label>
-            <input type="password" id="password" name="password" class="input"
-              placeholder="Enter your password" required>
+            <input type="password" id="password" name="password" class="input" placeholder="Enter your password"
+              required>
           </div>
 
           <div class="field">
@@ -39,7 +39,7 @@
           <div class="field">
             <label class="label">Email</label>
             <input type="email" [(ngModel)]="customer.email" class="input" id="email" name="email"
-              placeholder="Enter your email address" value="this.customer.email" #emailInput ="ngModel" required email>
+              placeholder="Enter your email address" value="this.customer.email" #emailInput="ngModel" required email>
             <div class="help is-error" *ngIf="emailInput.invalid && emailInput.touched">
               Your email needs to be a valid email.
             </div>

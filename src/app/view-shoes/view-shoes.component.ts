@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Shoe } from '../model/shoe';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../service/product.service';
-import { CartService } from '../service/cart.service';
-import { SessionService } from '../service/session.service';
-import { CustomerService } from '../service/customer.service';
+
+import { Shoe } from '../model/shoe';
 import { ProductReviewComponent } from '../review/review.component';
+import { CartService } from '../service/cart.service';
+import { CustomerService } from '../service/customer.service';
+import { ProductService } from '../service/product.service';
+import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-view-shoes',
@@ -22,38 +23,36 @@ export class ViewShoesComponent implements OnInit {
     private productService: ProductService,
     private shoppingcartService: CartService,
     private sessionService: SessionService,
-    public customerService: CustomerService) { 
-    }
+    public customerService: CustomerService) {
+  }
 
   ngOnInit(): void {
     // Get the productId route parameter
     const productId = this.route.snapshot.paramMap.get('productId');
 
-    if(productId !== null){
-    // Fetch the shirt object using the productId
-    this.productService.getShoesById(parseInt(productId, 10)).subscribe(shoes => {
-      this.shoes = shoes;
-      console.log(shoes)
-    });
+    if (productId !== null) {
+      // Fetch the shirt object using the productId
+      this.productService.getShoesById(parseInt(productId, 10)).subscribe(shoes => {
+        this.shoes = shoes;
+      });
     }
   }
 
-  submitReview(){
+  submitReview() {
     if (this.newReviewText.trim()) {
       let customer = this.sessionService.getItem('customer')
-      this.productService.postReview(this.newReviewRating, customer.userId, 
+      this.productService.postReview(this.newReviewRating, customer.userId,
         this.shoes.productId, this.newReviewText, customer.username).subscribe(success => {
-        this.newReviewText = '';
-        this.showReviewForm = false;
-        ProductReviewComponent.updateReviews(this.route, this.productService)
-      });
+          this.newReviewText = '';
+          this.showReviewForm = false;
+          ProductReviewComponent.updateReviews(this.route, this.productService)
+        });
     } else {
       alert('Please write a review before submitting.');
     }
   }
 
   addToCart(shoes: Shoe) {
-    console.log('Added to cart:', shoes);
     this.shoppingcartService.addToCart(shoes)
   }
 }

@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
-import { Customer } from '../model/customer';
+
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomerService } from '../service/customer.service';
-import { ProductService } from '../service/product.service';
+
+import { Customer } from '../model/customer';
+import { Hat } from '../model/hat';
+import { Pants } from '../model/pants';
 import { Product } from '../model/product';
 import { Shirt } from '../model/shirt';
-import { Pants } from '../model/pants';
-import { Hat } from '../model/hat';
 import { Shoe } from '../model/shoe';
-
+import { CustomerService } from '../service/customer.service';
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-home-page',
@@ -19,26 +20,22 @@ import { Shoe } from '../model/shoe';
 export class HomePageComponent {
   customer: Customer;
 
-  public productList : Product[] = [];
-  public pantsList : Pants[];
-  public hatList : Hat[];
-  public shirtList : Shirt[];
-  public shoesList : Shoe[];
+  public productList: Product[] = [];
+  public pantsList: Pants[];
+  public hatList: Hat[];
+  public shirtList: Shirt[];
+  public shoesList: Shoe[];
 
   constructor(
-    private route: ActivatedRoute, 
-      private router: Router, 
-        private customerService: CustomerService,
-        private productService: ProductService,
-        private cartService : CartService)
-        {
+    private router: Router,
+    private customerService: CustomerService,
+    private productService: ProductService,
+    private cartService: CartService) {
     this.customer = new Customer();
   }
-  
+
   onSubmit() {
     this.customerService.login(this.customer.username, this.customer.password).subscribe(response => {
-      console.log('HOME PAGE log in:' + response);
-        
       if (response) {
         this.customerService.isLoggedIn = true;
       } else {
@@ -48,7 +45,7 @@ export class HomePageComponent {
   }
 
   ngOnInit(): void {
-    this.productService.getHats().subscribe(hats=>{
+    this.productService.getHats().subscribe(hats => {
       this.hatList = hats as unknown as Hat[];
       this.hatList.forEach(hat => {
         hat.prodType = 'hat';
@@ -56,7 +53,7 @@ export class HomePageComponent {
       this.productList = this.productList.concat(this.hatList);
     })
 
-    this.productService.getPants().subscribe(pants=>{
+    this.productService.getPants().subscribe(pants => {
       this.pantsList = pants as unknown as Pants[];
       this.pantsList.forEach(pants => {
         pants.prodType = 'pants';
@@ -64,7 +61,7 @@ export class HomePageComponent {
       this.productList = this.productList.concat(this.pantsList);
     })
 
-    this.productService.getShirts().subscribe(shirts=>{
+    this.productService.getShirts().subscribe(shirts => {
       this.shirtList = shirts as unknown as Shirt[];
       this.shirtList.forEach(shirts => {
         shirts.prodType = 'shirt';
@@ -72,7 +69,7 @@ export class HomePageComponent {
       this.productList = this.productList.concat(this.shirtList);
     })
 
-    this.productService.getShoes().subscribe(shoes=>{
+    this.productService.getShoes().subscribe(shoes => {
       this.shoesList = shoes as unknown as Shoe[];
       this.shoesList.forEach(shoes => {
         shoes.prodType = 'shoes';
@@ -98,9 +95,9 @@ export class HomePageComponent {
     }
   }
 
-  addToCart(item : any){
+  addToCart(item: any) {
     this.cartService.addToCart(item)
-    
+
     this.router.navigate(['']);
   }
 }

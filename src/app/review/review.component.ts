@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Review } from '../model/review';
-import { CustomerService } from '../service/customer.service';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../service/product.service';
+
+import { Review } from '../model/review';
 import { CartService } from '../service/cart.service';
+import { ProductService } from '../service/product.service';
 import { SessionService } from '../service/session.service';
 
 @Component({
@@ -15,10 +15,8 @@ export class ProductReviewComponent implements OnInit {
   static reviews: Review[];
 
   constructor(private route: ActivatedRoute,
-    private productService: ProductService,
-    private shoppingcartService: CartService,
-    private sessionService: SessionService) { 
-    }
+    private productService: ProductService) {
+  }
 
   getReviews(): Review[] {
     return ProductReviewComponent.reviews.reverse();
@@ -28,12 +26,9 @@ export class ProductReviewComponent implements OnInit {
     ProductReviewComponent.updateReviews(this.route, this.productService);
   }
 
-  static updateReviews(route: ActivatedRoute, productService: ProductService){
+  static updateReviews(route: ActivatedRoute, productService: ProductService) {
     const productId = route.snapshot.paramMap.get('productId');
-
-    console.log('IN UPDATE REVIEWS!!!: ', productId)
-    
-    if(productId !== null && productId !== undefined){
+    if (productId !== null && productId !== undefined) {
       productService.getReviewsByProdId(parseInt(productId, 10)).subscribe(productReviews => {
         this.reviews = productReviews;
       });

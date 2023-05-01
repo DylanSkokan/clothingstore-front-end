@@ -4,7 +4,7 @@ export class Checkout {
     city: string;
     state: string;
     zip: number;
-  
+
     cardName: string;
     cardNum: string;
     expMonth: string;
