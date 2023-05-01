@@ -1,3 +1,8 @@
+/**
+ * Page displaying all hats.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Component, OnInit } from '@angular/core';
 
 import { Hat } from '../model/hat';
@@ -16,6 +21,9 @@ export class ProductHatsComponent implements OnInit {
     private productService: ProductService) {
   }
 
+  /**
+   * Gets all hats from the database for displaying.
+   */
   ngOnInit(): void {
     this.productService.getHats().subscribe(hats => {
       this.hats = hats as unknown as Hat[];

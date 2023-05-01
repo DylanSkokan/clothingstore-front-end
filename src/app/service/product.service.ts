@@ -1,3 +1,8 @@
+/**
+ * Product and product review communication with the back end.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Observable } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,7 +23,6 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getShirtById(id: number): Observable<Shirt> {
-    //NEED TO USE "BACK TICKS" instead of single quotes when sending ID
     return this.http.get<Shirt>(`http://localhost:8080/shirt/getById/${id}`)
   }
 

@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {
-  AccountCreationSuccessComponent
+    AccountCreationSuccessComponent
 } from './account-creation-success/account-creation-success.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

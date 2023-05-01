@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import {
-  AccountCreationSuccessComponent
+    AccountCreationSuccessComponent
 } from './account-creation-success/account-creation-success.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { CustomerLoginFormComponent } from './customer-login-form/customer-login-form.component';

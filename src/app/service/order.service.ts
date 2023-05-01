@@ -1,19 +1,20 @@
+/**
+ * Order communication with the back end.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Checkout } from '../model/checkout';
 import { Product } from '../model/product';
 import { CartService } from './cart.service';
-import { SessionService } from './session.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-  private tempOrder: Product[];
-  constructor(private http: HttpClient,
-    shoppingCartService: CartService) {
-    this.tempOrder = shoppingCartService.getCart();
+  constructor(private http: HttpClient) {
   }
 
   public createOrderWithCustomer(username: string, checkoutInfo: Checkout, orderItems: Product[]) {

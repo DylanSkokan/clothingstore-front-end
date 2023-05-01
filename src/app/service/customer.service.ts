@@ -1,4 +1,9 @@
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+/**
+ * Customer communication with back end and functionality.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';

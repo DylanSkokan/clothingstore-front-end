@@ -1,3 +1,8 @@
+/**
+ * Logic and functionality regarding the new account signup form.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -23,6 +28,14 @@ export class CustomerSignupFormComponent {
     this.customer = new Customer();
   }
 
+  /**
+   * Attempts to create the customer with the information in the fields. Needs
+   * matching passwords in the password and password confirmation fields to
+   * attempt account creation. If the username already exists in the database,
+   * does not let user create an account.
+   * 
+   * @param form information from the login form.
+   */
   onSubmit(form: NgForm) {
     //If passwords do not match reset fields and do not create customer.
     if (form.controls['password'].value !== form.controls['rePassword'].value) {

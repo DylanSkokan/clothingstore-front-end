@@ -1,3 +1,8 @@
+/**
+ * Session storage for saving cart and customer information.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Injectable } from '@angular/core';
 
 @Injectable({

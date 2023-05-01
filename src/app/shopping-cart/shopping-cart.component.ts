@@ -1,3 +1,8 @@
+/**
+ * Shopping cart page. Utilizes the shopping cart service.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Subject, takeUntil } from 'rxjs';
 import { CartService } from 'src/app/service/cart.service';
 

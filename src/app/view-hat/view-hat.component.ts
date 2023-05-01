@@ -1,3 +1,8 @@
+/**
+ * Viewing a specific hat.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -38,17 +43,21 @@ export class ViewHatComponent implements OnInit {
     }
   }
 
+  /**
+   * When submitting a review, reset the review text and close the review form. Then
+   * update the reviews, showing that the review made it through the backend. If there
+   */
   submitReview() {
-    if (this.newReviewText.trim()) {
-      let customer = this.sessionService.getItem('customer')
-      this.productService.postReview(this.newReviewRating, customer.userId,
-        this.hat.productId, this.newReviewText, customer.username).subscribe(success => {
-          this.newReviewText = '';
-          this.showReviewForm = false;
-          ProductReviewComponent.updateReviews(this.route, this.productService)
-        });
-    } else {
-      alert('Please write a review before submitting.');
+    if(this.newReviewRating != null && this.newReviewText != ''){
+      if (this.newReviewText.trim()) {
+        let customer = this.sessionService.getItem('customer')
+        this.productService.postReview(this.newReviewRating, customer.userId,
+          this.hat.productId, this.newReviewText, customer.username).subscribe(success => {
+            this.newReviewText = '';
+            this.showReviewForm = false;
+            ProductReviewComponent.updateReviews(this.route, this.productService)
+          });
+      }
     }
   }
 

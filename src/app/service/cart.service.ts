@@ -1,3 +1,8 @@
+/**
+ * Shopping cart logic and functionality.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Subject } from 'rxjs';
 
 import { Injectable } from '@angular/core';
@@ -36,7 +41,10 @@ export class CartService {
     return this.cartUpdated.asObservable();
   }
 
-  //call this method every time something changes with the cart
+  /**
+   * Calcuate a new total cost, set the cart in the session, and notify subscribers
+   * of the cart that it has changed every time the cart changes.
+   */
   updateCart() {
     //update cart's totalCost
     this.cart.totalCost = this.getTotalPrice();

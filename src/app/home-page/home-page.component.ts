@@ -1,7 +1,13 @@
+/**
+ * Logic and functionality regarding the home page which displays
+ * all products.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { CartService } from 'src/app/service/cart.service';
 
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Customer } from '../model/customer';
 import { Hat } from '../model/hat';
@@ -28,22 +34,16 @@ export class HomePageComponent {
 
   constructor(
     private router: Router,
-    private customerService: CustomerService,
     private productService: ProductService,
     private cartService: CartService) {
     this.customer = new Customer();
   }
 
-  onSubmit() {
-    this.customerService.login(this.customer.username, this.customer.password).subscribe(response => {
-      if (response) {
-        this.customerService.isLoggedIn = true;
-      } else {
-        this.customerService.isLoggedIn = false;
-      }
-    });
-  }
-
+  /**
+   * On initialization, the home page needs to get all products. On top
+   * of this, the front end needs to know which types of products they
+   * are. Has to get products from their respective tables.
+   */
   ngOnInit(): void {
     this.productService.getHats().subscribe(hats => {
       this.hatList = hats as unknown as Hat[];
@@ -78,6 +78,11 @@ export class HomePageComponent {
     })
   }
 
+  /**
+   * Goes to the product view page for the given type of product.
+   * 
+   * @param product the product's page to go to.
+   */
   seeDetails(product: Product) {
     switch (product.prodType) {
       case 'shirt':
@@ -95,6 +100,11 @@ export class HomePageComponent {
     }
   }
 
+  /**
+   * Handles adding an item to the cart from the home page.
+   * 
+   * @param item the item to be added to the cart.
+   */
   addToCart(item: any) {
     this.cartService.addToCart(item)
 

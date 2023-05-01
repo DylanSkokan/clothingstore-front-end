@@ -1,6 +1,11 @@
+/**
+ * Account page. Customers can change their credentials here.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customer.service';

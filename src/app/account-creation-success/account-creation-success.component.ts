@@ -1,3 +1,8 @@
+/**
+ * Handles the page regarding a successful account reaction.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Component } from '@angular/core';
 
 @Component({

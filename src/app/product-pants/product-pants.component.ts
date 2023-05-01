@@ -1,3 +1,8 @@
+/**
+ * Page displaying all pants.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Component, OnInit } from '@angular/core';
 
 import { Pants } from '../model/pants';
@@ -15,6 +20,9 @@ export class ProductPantsComponent implements OnInit {
     private productService: ProductService) {
   }
 
+  /**
+   * Gets all pants from the database for displaying.
+   */
   ngOnInit(): void {
     this.productService.getPants().subscribe(pants => {
       this.pants = pants as unknown as Pants[];

@@ -1,3 +1,8 @@
+/**
+ * Handles the customer login form.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -21,6 +26,10 @@ export class CustomerLoginFormComponent {
     this.customer = new Customer();
   }
 
+  /**
+   * Attempts to log the customer in with the infromation in the fields. It does a back end
+   * check to see if the credentials are valid.
+   */
   onSubmit() {
     this.customerService.login(this.customer.username, this.customer.password).subscribe(loggedInCust => {
       if (loggedInCust !== null) {
