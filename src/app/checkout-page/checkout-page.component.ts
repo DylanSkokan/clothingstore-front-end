@@ -52,8 +52,6 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('SUBBBMIIIIT')
-
     console.log(this.sessionService.getItem('cart'));
     if (this.sessionService.getItem('customer') == null) {
       this.orderService.createOrder(this.sessionService.getItem('cart'), this.checkoutInfo).subscribe(response => {
@@ -62,6 +60,7 @@ export class CheckoutPageComponent implements OnInit {
     else {
       console.log(this.sessionService.getItem('customer').username);
       this.orderService.createOrderWithCustomer(this.sessionService.getItem('customer').username, this.checkoutInfo, this.sessionService.getItem('cart')).subscribe(response => {
+        console.log(response)
       });
     }
     this.cartService.removeAllItems();
