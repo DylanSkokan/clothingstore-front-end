@@ -1,12 +1,19 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+/**
+ * Product and product review communication with the back end.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
+import { Observable } from 'rxjs';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, retry, throwError } from 'rxjs';
-import { Shirt } from '../model/shirt';
-import { Shoe } from '../model/shoe';
-import { Pants } from '../model/pants';
+
 import { Hat } from '../model/hat';
+import { Pants } from '../model/pants';
 import { Product } from '../model/product';
 import { Review } from '../model/review';
+import { Shirt } from '../model/shirt';
+import { Shoe } from '../model/shoe';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +23,6 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getShirtById(id: number): Observable<Shirt> {
-    //NEED TO USE "BACK TICKS" instead of single quotes when sending ID
     return this.http.get<Shirt>(`http://localhost:8080/shirt/getById/${id}`)
   }
 
@@ -25,16 +31,14 @@ export class ProductService {
   }
 
   postReview(rating: number, userId: number, productId: number, review: string, username: string):
-  Observable<boolean> {
-    console.log('in postreview in service')
-    console.log(userId)
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    Observable<boolean> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<boolean>
-    ('http://localhost:8080/productReview/saveProductReview', 
-    {rating, userId, productId, review, username},
-    {headers: headers})
-  } 
-  
+      ('http://localhost:8080/productReview/saveProductReview',
+        { rating, userId, productId, review, username },
+        { headers: headers })
+  }
+
   getShoesById(id: number): Observable<Shoe> {
     return this.http.get<Shoe>(`http://localhost:8080/shoes/getById/${id}`)
   }

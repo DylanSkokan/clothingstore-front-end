@@ -15,154 +15,132 @@
 		<div class="container">
 			<div class="columns">
 				<div class="column is-three-fourths">
-						<div class="row">
-							<div class="column is-half">
-								<label style="font-size: x-large" class="label">Billing Information</label>
+					<div class="row">
+						<div class="column is-half">
+							<label style="font-size: x-large" class="label">Billing Information</label>
 
-								<label class="label" for="fname"><i class="fa fa-user"></i> Full Name</label>
+							<label class="label" for="fname"><i class="fa fa-user"></i> Full Name</label>
 
-								<div class="form-group">
-									<input type="text"
-										   class="form-control" 
-										   id="fname" 
-										   name="firstname" 
-										   placeholder="Name"
-										   required
-										   [(ngModel)]="checkoutInfo.billingName">
-								</div>
-
-								<label class="label" for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-
-								<div class="form-group">
-									<input type="text"
-										   class="form-control" 
-										   id="adr" 
-										   name="address" 
-										   placeholder="123 4th Street"
-										   required
-										   [(ngModel)]="checkoutInfo.address">
-								</div>
-
-								<label class="label" for="city"><i class="fa fa-city"></i> City</label>
-
-								<div class="form-group">
-									<input type="text"
-										   class="form-control" 
-										   id="city" 
-										   name="city" 
-										   placeholder="City"
-										   required
-										   [(ngModel)]="checkoutInfo.city">
-								</div>
-
-								<label class="label" for="state">State</label>
-
-								<div class="form-group">
-									<input type="text"
-										   class="form-control" 
-										   id="state" 
-										   name="state" 
-										   placeholder="State"
-										   required
-										   [(ngModel)]="checkoutInfo.state">
-								</div>
-
-								<label class="label" for="zip">Zip</label>
-
-								<div class="form-group">
-									<input type="text"
-										   class="form-control" 
-										   id="zip" 
-										   name="zip" 
-										   placeholder="12345"
-										   required
-										   [(ngModel)]="checkoutInfo.zip">
-								</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="fname" name="firstname" placeholder="Name"
+									required [(ngModel)]="checkoutInfo.billingName">
 							</div>
 
-							<div class="column is-half">
-								<label style="font-size: x-large" class="label">Payment</label>
-								<label class="label">Accepted Cards</label>
-								<div class="icon-container">
-									<i class="fa fa-cc-visa" style="color:navy; padding: 7px"></i>
-									<i class="fa fa-cc-amex" style="color:blue; padding: 7px"></i>
-									<i class="fa fa-cc-mastercard" style="color:red; padding: 7px"></i>
-									<i class="fa fa-cc-discover" style="color:orange; padding: 7px"></i>
-								</div>
+							<label class="label" for="adr"><i class="fa fa-address-card-o"></i> Address</label>
 
-								<label class="label" for="cname">Name on Card</label>
+							<div class="form-group">
+								<input type="text" class="form-control" id="adr" name="address"
+									placeholder="123 4th Street" required [(ngModel)]="checkoutInfo.address">
+							</div>
 
-								<div class="form-group">
-									<input type="text"
-										   class="form-control" 
-										   id="cname" 
-										   name="cardname" 
-										   placeholder="Name"
-										   required
-										   [(ngModel)]="checkoutInfo.cardName">
-								</div>
+							<label class="label" for="city"><i class="fa fa-city"></i> City</label>
 
-								<label class="label" for="ccnum">Credit card number</label>
+							<div class="form-group">
+								<input type="text" class="form-control" id="city" name="city" placeholder="City"
+									required [(ngModel)]="checkoutInfo.city">
+							</div>
 
-								<div class="form-group">
-									<input type="text"
-										   class="form-control" 
-										   id="ccnum" 
-										   name="cardnumber" 
-										   placeholder="1111-2222-3333-4444"
-										   required
-										   [(ngModel)]="checkoutInfo.cardNum">
-								</div>
-								
-								<label class="label" for="expmonth">Exp Month</label>
+							<label class="label" for="state">State</label>
 
-								<div class="form-group">
-									<input type="text"
-										   class="form-control" 
-										   id="expmonth" 
-										   name="expmonth" 
-										   placeholder="Month"
-										   required
-										   [(ngModel)]="checkoutInfo.expMonth">
-								</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="state" name="state" placeholder="State"
+									required [(ngModel)]="checkoutInfo.state">
+							</div>
 
-								<div class="row">
-									<div class="col-50">
-										<label class="label" for="expyear">Exp Year</label>
+							<label class="label" for="zip">Zip</label>
 
-										<div class="form-group">
-											<input type="text"
-												   class="form-control" 
-												   id="expyear" 
-												   name="expyear" 
-												   placeholder="2023"
-												   required
-												   [(ngModel)]="checkoutInfo.expYear">
-										</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="zip" name="zip" placeholder="12345" required
+									maxlength="5" [(ngModel)]="checkoutInfo.zip"
+									oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+							</div>
+						</div>
+
+						<div class="column is-half">
+							<label style="font-size: x-large" class="label">Payment</label>
+							<label class="label">Accepted Cards</label>
+							<div class="icon-container">
+								<i class="fa fa-cc-visa" style="color:navy; padding: 7px"></i>
+								<i class="fa fa-cc-amex" style="color:blue; padding: 7px"></i>
+								<i class="fa fa-cc-mastercard" style="color:red; padding: 7px"></i>
+								<i class="fa fa-cc-discover" style="color:orange; padding: 7px"></i>
+							</div>
+
+							<label class="label" for="cname">Name on Card</label>
+
+							<div class="form-group">
+								<input type="text" class="form-control" id="cname" name="cardname" placeholder="Name"
+									required [(ngModel)]="checkoutInfo.cardName">
+							</div>
+
+							<label class="label" for="ccnum">Credit card number</label>
+
+							<div class="form-group">
+								<input type="tel" class="form-control" id="ccnum" name="cardnumber"
+									placeholder="1111-2222-3333-4444" maxlength="19" required
+									[(ngModel)]="checkoutInfo.cardNum"
+									oninput="this.value = this.value.replace(/[^0-9\-]/g, '')">
+							</div>
+
+							<label class="label" for="expmonth">Exp Month</label>
+
+							<div class="form-group">
+								<select class="form-control" id="expmonth" name="expmonth"
+									[(ngModel)]="checkoutInfo.expMonth" required>
+									<option value="">-- Select Month --</option>
+									<option value="1">January</option>
+									<option value="2">February</option>
+									<option value="3">March</option>
+									<option value="4">April</option>
+									<option value="5">May</option>
+									<option value="6">June</option>
+									<option value="7">July</option>
+									<option value="8">August</option>
+									<option value="9">September</option>
+									<option value="10">October</option>
+									<option value="11">November</option>
+									<option value="12">December</option>
+								</select>
+							</div>
+
+							<div class="row">
+								<div class="col-50">
+									<label class="label" for="expyear">Exp Year</label>
+									<div class="form-group">
+										<select class="form-control" id="expyear" name="expyear"
+											[(ngModel)]="checkoutInfo.expYear" required>
+											<option value="">-- Select Expiration Year --</option>
+											<option value="2023">2023</option>
+											<option value="2024">2024</option>
+											<option value="2025">2025</option>
+											<option value="2026">2026</option>
+											<option value="2027">2027</option>
+											<option value="2028">2028</option>
+											<option value="2029">2029</option>
+											<option value="2030">2030</option>
+										</select>
 									</div>
-									<div class="col-50">
-										<label class="label" for="cvv">CVV</label>
+								</div>
+								<div class="col-50">
+									<label class="label" for="cvv">CVV</label>
 
-										<div class="form-group">
-											<input type="text"
-												   class="form-control" 
-												   id="cvv" 
-												   name="cvv" 
-												   placeholder="123"
-												   required
-												   [(ngModel)]="checkoutInfo.cvv">
-										</div>
+									<div class="form-group">
+										<input type="text" class="form-control" id="cvv" name="cvv" pattern="[0-9]{3}"
+											placeholder="123" required maxlength="3" [(ngModel)]="checkoutInfo.cvv"
+											oninput="this.value = this.value.replace(/[^0-9]/g, '')">
 									</div>
 								</div>
 							</div>
 						</div>
+					</div>
 				</div>
 				<div class="column is-one-quarter">
 					<div class="container">
 						<div class="card">
 							<label class="label"><i class="fa fa-shopping-cart">&nbsp;&nbsp;</i>Cart</label>
 							<div *ngFor="let item of cart.products; let i = index">
-								<p class="center"><img style="width: 120px; padding: 5px; " src="{{item.imageSource}}"></p>
+								<p class="center"><img style="width: 120px; padding: 5px; " src="{{item.imageSource}}">
+								</p>
 								<p class="center">{{item.description}}</p>
 								<p class="center">{{item.quantity * item.price | currency}}</p>
 							</div>&nbsp;&nbsp;
@@ -172,8 +150,7 @@
 				</div>
 			</div>
 			<div>
-				<button type="submit" [disabled]="!checkoutForm.form.valid" 
-				class="btn btn-info">Submit</button>
+				<button type="submit" [disabled]="!checkoutForm.form.valid" class="btn btn-info">Submit</button>
 			</div>
 		</div>
 	</form>

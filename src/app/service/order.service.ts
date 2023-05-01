@@ -1,20 +1,20 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject, map } from 'rxjs';
+/**
+ * Order communication with the back end.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Order } from '../model/order';
-import { SessionService } from './session.service';
-import { ShoppingcartService } from './shoppingcart.service';
-import { Product } from '../model/product';
+
 import { Checkout } from '../model/checkout';
+import { Product } from '../model/product';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-  private tempOrder: Product[];
-  constructor(private http: HttpClient, sessionService: SessionService, shoppingCartService: ShoppingcartService) {
-    this.tempOrder = shoppingCartService.getCart();
-
+  constructor(private http: HttpClient) {
   }
 
   public createOrderWithCustomer(username: string, checkoutInfo: Checkout, orderItems: Product[]) {

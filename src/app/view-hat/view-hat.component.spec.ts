@@ -8,9 +8,9 @@ describe('ViewHatComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewHatComponent ]
+      declarations: [ViewHatComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ViewHatComponent);
     component = fixture.componentInstance;

@@ -8,9 +8,9 @@ describe('ViewShirtComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewShirtComponent ]
+      declarations: [ViewShirtComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ViewShirtComponent);
     component = fixture.componentInstance;

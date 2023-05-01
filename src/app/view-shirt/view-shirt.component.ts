@@ -1,14 +1,18 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Shirt } from '../model/shirt';
+/**
+ * Viewing a specific shirt.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../service/product.service';
-import { CartService } from '../service/cart.service';
-import { catchError, throwError } from 'rxjs';
+
 import { Review } from '../model/review';
-import { CustomerService } from '../service/customer.service';
-import { SessionService } from '../service/session.service';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { Shirt } from '../model/shirt';
 import { ProductReviewComponent } from '../review/review.component';
+import { CartService } from '../service/cart.service';
+import { CustomerService } from '../service/customer.service';
+import { ProductService } from '../service/product.service';
+import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-view-shirt',
@@ -17,6 +21,7 @@ import { ProductReviewComponent } from '../review/review.component';
 })
 export class ViewShirtComponent implements OnInit {
   shirt: Shirt;
+  size: String;
   reviews: Review[];
   showReviewForm = false;
   newReviewText: string;
@@ -26,63 +31,50 @@ export class ViewShirtComponent implements OnInit {
     private productService: ProductService,
     private shoppingcartService: CartService,
     public customerService: CustomerService,
-    private sessionService: SessionService) { 
-    }
+    private sessionService: SessionService) {
+  }
 
   ngOnInit(): void {
 
     // Get the productId route parameter
     const productId = this.route.snapshot.paramMap.get('productId');
 
-    console.log('product id for this shirt', productId)
+    if (productId !== null) {
+      // Fetch the shirt object using the productId
+      this.productService.getShirtById(parseInt(productId, 10)).subscribe(shirt => {
+        this.shirt = shirt;
+      });
 
-    if(productId !== null){
-    // Fetch the shirt object using the productId
-    this.productService.getShirtById(parseInt(productId, 10)).pipe(
-      catchError(error => {
-        console.log(error);
-        return throwError(() => error);
-      })
-    ).subscribe(shirt => {
-      this.shirt = shirt;
-      console.log(shirt);
-    });
-
-    // get the product reviews for this product ID
-    this.productService.getReviewsByProdId(parseInt(productId, 10)).pipe(
-      catchError(error => {
-        console.log(error);
-        return throwError(() => error);
-      })
-    ).subscribe(reviews => {
-      this.reviews = reviews;
-      console.log(reviews);
-    });
+      // get the product reviews for this product ID
+      this.productService.getReviewsByProdId(parseInt(productId, 10)).subscribe(reviews => {
+        this.reviews = reviews;
+      });
     }
   }
 
   addToCart(shirt: Shirt) {
-    console.log('Added to cart:', shirt);
     this.shoppingcartService.addToCart(shirt)
   }
 
-  submitReview(){
-    if (this.newReviewText.trim()) {
-      let customer = this.sessionService.getItem('customer')
-      this.productService.postReview(this.newReviewRating, customer.userId, 
-        this.shirt.productId, this.newReviewText, customer.username).subscribe(success => {
-        this.newReviewText = '';
-        this.showReviewForm = false;
-        ProductReviewComponent.updateReviews(this.route, this.productService)
-      });
-    } else {
-      alert('Please write a review before submitting.');
+  /**
+   * When submitting a review, reset the review text and close the review form. Then
+   * update the reviews, showing that the review made it through the backend.
+   */
+  submitReview() {
+    if(this.newReviewRating != null && this.newReviewText != ''){
+      if (this.newReviewText.trim()) {
+        let customer = this.sessionService.getItem('customer')
+        this.productService.postReview(this.newReviewRating, customer.userId,
+          this.shirt.productId, this.newReviewText, customer.username).subscribe(success => {
+            this.newReviewText = '';
+            this.showReviewForm = false;
+            ProductReviewComponent.updateReviews(this.route, this.productService)
+          });
+      }
     }
   }
 
-  size: String;
-
-  pickingSize(e : any){
+  pickingSize(e: any) {
     this.size = e.target.value
   }
 }

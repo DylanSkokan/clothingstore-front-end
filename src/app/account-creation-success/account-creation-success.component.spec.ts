@@ -8,9 +8,9 @@ describe('AccountCreationSuccessComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AccountCreationSuccessComponent ]
+      declarations: [AccountCreationSuccessComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AccountCreationSuccessComponent);
     component = fixture.componentInstance;

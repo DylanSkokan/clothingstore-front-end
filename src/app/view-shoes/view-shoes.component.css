@@ -18,27 +18,8 @@
   font-size: large;
 }
 
-/* Can use this but it is not supported by IE10 and previous versions so use caution
-
-.row {
-  display: flex;
-}
-
-.column {
-  flex: 50%;
-}
-
-Can also use this if we want a responsive layout where is the screen is less than 600px, the two columns will stack on top of eachother instead of next to eachother
-
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
-}
-
-*/
-
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -51,6 +32,7 @@ html, body {
   padding: 15px;
   display: flex;
 }
+
 .left-column {
   width: 65%;
   position: relative;
@@ -65,7 +47,6 @@ img {
   padding: 8px;
   background: rgb(101, 101, 101);
   border: 15px solid grey;
-  /* border-radius: 25px; */
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 25px;
@@ -85,7 +66,7 @@ label {
 }
 
 .background {
-  background-image: linear-gradient(to bottom right, #bdc3c7, #2c3e50); 
+  background-image: linear-gradient(to bottom right, #bdc3c7, #2c3e50);
   background-size: cover;
   background-position: center center;
 }

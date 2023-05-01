@@ -1,60 +1,59 @@
-<!-- Come back and edit this to have a nav bar with drop down and then things on the right -->
 <nav class="navbar is-dark is-bold" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" routerLink="/">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fa fa-home"></i>
-            </span>
-            <span>Home</span>
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" routerLink="/">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="fa fa-home"></i>
           </span>
-          <!-- Home --> 
+          <span>Home</span>
+        </span>
+        <!-- Home -->
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Products
         </a>
-  
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Products
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" routerLink="/product-shirts">
+            Shirts
           </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item" routerLink="/product-shirts">
-              Shirts
-            </a>
-            <a class="navbar-item" routerLink="/product-pants">
-              Pants
-            </a>
-            <a class="navbar-item" routerLink="/product-shoes">
-              Shoes
-            </a>
-            <a class="navbar-item" routerLink="/product-hats">
-              Hats
-            </a>
-          </div>
+          <a class="navbar-item" routerLink="/product-pants">
+            Pants
+          </a>
+          <a class="navbar-item" routerLink="/product-shoes">
+            Shoes
+          </a>
+          <a class="navbar-item" routerLink="/product-hats">
+            Hats
+          </a>
         </div>
       </div>
-  
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <ng-container *ngIf="customerService.isLoggedIn; then loggedInContent else loggedOutContent"></ng-container>
-          <ng-template #loggedOutContent>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <ng-container *ngIf="customerService.isLoggedIn; then loggedInContent else loggedOutContent"></ng-container>
+        <ng-template #loggedOutContent>
           <div class="buttons">
-            <a class ="button" routerLink="/shopping-cart">
+            <a class="button" routerLink="/shopping-cart">
               <span class="icon-text">
                 <span class="icon">
                   <i class="fa fa-shopping-cart"></i>
                 </span>
                 <span>My Cart</span>&nbsp;&nbsp;
               </span>
-              <div style="font-size: 10px;"class="badge bg-danger">{{ totalItems }}</div>
+              <div style="font-size: 10px;" class="badge bg-danger">{{ totalItems }}</div>
             </a>
             <a class="button is-primary" routerLink="customer/createCustomer">
               <strong>Sign Up</strong>
@@ -66,14 +65,14 @@
         </ng-template>
         <ng-template #loggedInContent>
           <div class="buttons">
-            <a class ="button" routerLink="/shopping-cart">
+            <a class="button" routerLink="/shopping-cart">
               <span class="icon-text">
                 <span class="icon">
                   <i class="fa fa-shopping-cart"></i>
                 </span>
                 <span>My Cart</span>&nbsp;&nbsp;
               </span>
-              <div style="font-size: 10px;"class="badge bg-danger">{{ totalItems }}</div>
+              <div style="font-size: 10px;" class="badge bg-danger">{{ totalItems }}</div>
             </a>
             <a class="button is-primary" routerLink="/userAccount">
               <strong>{{ username ? username : 'Account' }}</strong>
@@ -83,7 +82,7 @@
             </a>
           </div>
         </ng-template>
-        </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>

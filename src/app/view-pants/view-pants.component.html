@@ -5,7 +5,6 @@
     <div class="column">
       <div class="image-frame">
 
-        <!-- FIX ME: image should render with appropriate product -->
         <img data-image="black" align="right" src="{{pants.imageSource}}" alt="">
 
       </div>
@@ -31,29 +30,13 @@
           <p>Size: {{ pants.size }}</p>
         </b><br>
 
-        <!-- <div class="style">
-          <b>
-          <input type="radio" id="small" name="size" value="small" (change)="pickingSize($event)" checked>
-          <label for="small"> Small</label><br>
-
-          <input [(ngModel)]="size" type="radio" id="medium" name="size" value="medium" (change)="pickingSize($event)">
-          <label for="medium"> Medium</label><br>
-
-          <input [(ngModel)]="size" type="radio" id="large" name="size" value="large" (change)="pickingSize($event)">
-          <label for="large"> Large</label><br>
-
-          <input [(ngModel)]="size" type="radio" id="x-large" name="size" value="x-large" (change)="pickingSize($event)">
-          <label for="x-large"> Extra Large</label><br><br>
-          </b>
-        </div> -->
-
-
         <button (click)="addToCart(pants)" class="button is-medium is-link" value="Submit">Add To Cart</button>
       </form>
     </div>
   </div>
 
-  <button class="button is-medium is-link" (click)="showReviewForm = true" *ngIf="customerService.isLoggedIn">New Review</button>
+  <button class="button is-medium is-link" (click)="showReviewForm = true" *ngIf="customerService.isLoggedIn">New
+    Review</button>
 
   <div *ngIf="showReviewForm">
     <form (ngSubmit)="submitReview()">
@@ -69,17 +52,7 @@
       <button type="submit">Submit</button>
     </form>
   </div>
-  
+
   <app-product-review></app-product-review>
 
 </div>
-
-<title>Pants: {{pants.brand}} </title>
-
-<!-- if shirt is not null, load details-->
-<!-- <div class="shirt-detail" *ngIf="shirt">
-  <h2>{{ shirt.brand }}</h2>
-  <p>Color: {{ shirt.color }}</p>
-  <p>Size: {{ shirt.size }}</p>
-  <button (click)="addToCart(shirt)">Add to Cart</button>
-</div> -->

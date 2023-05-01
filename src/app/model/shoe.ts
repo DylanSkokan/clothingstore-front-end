@@ -1,6 +1,6 @@
-import { Product } from "./product";
+import { Product } from './product';
 
-export class Shoe extends Product{
+export class Shoe extends Product {
     constructor() {
         super();
         this.prodType = 'shoes';

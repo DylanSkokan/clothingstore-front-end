@@ -1,5 +1,9 @@
+/**
+ * Handles the page regarding a successful account reaction.
+ *
+ * @author Dylan Skokan, Isaiah Cuellar, Tom Waterman, Justin Pham, Kyle McClernon
+ */
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-creation-success',
@@ -8,8 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AccountCreationSuccessComponent {
   constructor(
-    private route: ActivatedRoute, 
-      private router: Router) {
+  ) {
 
   }
 }
