@@ -53,18 +53,26 @@ export class CheckoutPageComponent implements OnInit {
 
   onSubmit() {
     console.log('SUBBBMIIIIT')
-
+    var orderID; 
     console.log(this.sessionService.getItem('cart'));
     if (this.sessionService.getItem('customer') == null) {
       this.orderService.createOrder(this.sessionService.getItem('cart'), this.checkoutInfo).subscribe(response => {
+        orderID = response;
+        this.cartService.removeAllItems();
+        this.router.navigate(['/orderConfirmation'], {queryParams: {orderId: orderID}});
       });
     }
     else {
+     
       console.log(this.sessionService.getItem('customer').username);
       this.orderService.createOrderWithCustomer(this.sessionService.getItem('customer').username, this.checkoutInfo, this.sessionService.getItem('cart')).subscribe(response => {
+        orderID = response;
+        this.cartService.removeAllItems();
+        this.router.navigate(['/orderConfirmation'], {queryParams: {orderId: orderID}});
       });
     }
+    
     this.cartService.removeAllItems();
-    this.router.navigate(['/orderConfirmation']);
+    this.router.navigate(['/orderConfirmation'], {queryParams: {orderId: orderID}});
   }
 }
