@@ -31,7 +31,7 @@ export class ProductReviewComponent implements OnInit {
     if(ProductReviewComponent.reviews == null) {
       return []
     } else {
-      return ProductReviewComponent.reviews.reverse();
+      return ProductReviewComponent.reviews;
     }
     
   }
@@ -54,7 +54,7 @@ export class ProductReviewComponent implements OnInit {
     const productId = route.snapshot.paramMap.get('productId');
     if (productId !== null && productId !== undefined) {
       productService.getReviewsByProdId(parseInt(productId, 10)).subscribe(productReviews => {
-        this.reviews = productReviews;
+        this.reviews = productReviews.reverse();
       });
     }
   }
