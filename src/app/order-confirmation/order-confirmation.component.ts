@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './order-confirmation.component.html',
   styleUrls: ['./order-confirmation.component.css']
 })
+
 export class OrderConfirmationComponent implements OnInit {
   orderId: number;
 
