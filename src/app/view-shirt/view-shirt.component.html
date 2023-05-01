@@ -34,14 +34,15 @@
       </form>
     </div>
   </div>
+  <div class="center">
 
   <button class="button is-medium is-link" (click)="showReviewForm = true" *ngIf="customerService.isLoggedIn">New
     Review</button>
-
   <div *ngIf="showReviewForm">
-    <form (ngSubmit)="submitReview()">
-      <textarea [(ngModel)]="newReviewText" name="newReviewText"></textarea>
-      <label>Rating:</label>
+    <form (ngSubmit)="submitReview()"><br>
+      <textarea [(ngModel)]="newReviewText" name="newReviewText" rows="6" cols="100"></textarea>
+      <br>
+      <label for="newReviewRating">Rating:</label>
       <select [(ngModel)]="newReviewRating" name="newReviewRating">
         <option value="1">1 star</option>
         <option value="2">2 stars</option>
@@ -49,9 +50,12 @@
         <option value="4">4 stars</option>
         <option value="5">5 stars</option>
       </select>
-      <button type="submit">Submit</button>
+      <br>
+      <br>
+      <button class="button is-medium is-link" type="submit">Submit</button>
     </form>
   </div>
+</div>
 
   <app-product-review></app-product-review>
 
