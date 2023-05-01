@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customer.service';
-import { HeaderComponent } from '../header/header.component';
 import { SessionService } from '../service/session.service';
 
 @Component({

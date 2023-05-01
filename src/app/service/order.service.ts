@@ -3,18 +3,17 @@ import { BehaviorSubject, Observable, Subject, map } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Order } from '../model/order';
 import { SessionService } from './session.service';
-import { ShoppingcartService } from './shoppingcart.service';
 import { Product } from '../model/product';
 import { Checkout } from '../model/checkout';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
   private tempOrder: Product[];
-  constructor(private http: HttpClient, sessionService: SessionService, shoppingCartService: ShoppingcartService) {
+  constructor(private http: HttpClient, sessionService: SessionService, shoppingCartService: CartService) {
     this.tempOrder = shoppingCartService.getCart();
-
   }
 
   public createOrderWithCustomer(username: string, checkoutInfo: Checkout, orderItems: Product[]) {

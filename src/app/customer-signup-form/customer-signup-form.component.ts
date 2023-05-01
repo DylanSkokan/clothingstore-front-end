@@ -1,6 +1,5 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from '../model/customer';
 import { CustomerService } from '../service/customer.service';
@@ -18,7 +17,6 @@ export class CustomerSignupFormComponent {
   invalidPassword: boolean = false;
 
   constructor(
-    private route: ActivatedRoute, 
       private router: Router, 
         private customerService: CustomerService) {
     this.customer = new Customer();
